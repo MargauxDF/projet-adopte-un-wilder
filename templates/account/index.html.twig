@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Compte{% endblock %}
+
+{% block body %}
+
+    <section>
+        <h1>Mon compte</h1>
+
+        <p>Bienvenue {{ app.user.firstname }} dans votre espace de création de CV !</p>
+
+        <hr>
+
+        <p>- Modifier mon mot de passe</p>
+        <p>- Modifier Mon profil et mes infos !</p>
+    </section>
+
+{% endblock %}
