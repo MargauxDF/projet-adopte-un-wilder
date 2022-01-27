@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affichage des Infos{% endblock %}
+
+{% block body %}
+
+    <ul>
+        {% for info in infos %}
+
+            <li>{{ info.firstname }}</li>
+
+            {% for experience in info.experiences %}
+
+                {{ experience.title }}
+
+            {% endfor %}
+
+        {% endfor  %}
+    </ul>
+
+{% endblock %}
