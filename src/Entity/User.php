@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,7 +11,6 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @ORM\HasLifecycleCallbacks()
  * @method string getUserIdentifier()
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -40,7 +38,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private string $slug;
 
     /**
-     * @var string The hashed password
      * @ORM\Column(type="string", length=255, unique=true)
      */
     private string $email;
@@ -136,23 +133,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * Initialiser le slug
-     *
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
-     *
-     * @return void
-     */
-    public function initializeSlug()
-    {
-
-        if (empty($this->slug)) {
-            $slugify = new Slugify();
-            $this->slug = $slugify->slugify($this->firstname . ' ' . $this->lastname);
-        }
-    }
-
     public function getSlug(): ?string
     {
         return $this->slug;
@@ -182,7 +162,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getPassword(): ?string
     {
-        return (string) $this->password;
+        return $this->password;
     }
 
     public function setPassword(string $password): self
