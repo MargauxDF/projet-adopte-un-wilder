@@ -47,10 +47,10 @@ section{
 /********** Account Page *********/
 #left-info {
     display: block;
-    height: 650px;
+    height: 100%;
 }
 #right-info {
-    height: 650px;
+    height: 100%;
 }
 .profile-picture img {
     width: 100%;
