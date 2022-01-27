@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 /* rose utilisé dans la navbar:#eb6864 */
 
 /*********** Navbar ***********/
@@ -25,4 +27,10 @@ body {
     100% {
         background-position: 0% 50%;
     }
+}
+
+#titre-site {
+    font-family: "Pacifico", cursive;
+    color: floralwhite !important;
+    font-size: xxx-large;
 }
