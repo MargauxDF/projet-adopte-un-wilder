@@ -43,3 +43,42 @@ section{
     padding: 20px;
 
 }
+
+/********** Account Page *********/
+#left-info {
+    display: block;
+    height: 650px;
+}
+#right-info {
+    height: 650px;
+}
+.profile-picture img {
+    width: 100%;
+}
+.button-dashboard {
+    padding: 40px 30px;
+}
+.button-dashboard:hover {
+    transition: all 300ms ease-in-out;
+    transform: scale(1.1);
+}
+.button-dashboard a{
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+}
+#button-info {
+    background-color: lightskyblue;
+}
+#button-skill {
+    background-color: plum;
+}
+#button-experience {
+    background-color: mediumslateblue;
+}
+#button-education {
+    background-color: salmon;
+}
+#button-project {
+    background-color: darkseagreen;
+}
