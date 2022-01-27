@@ -10,8 +10,6 @@
 		<title>
 			{% block title %}{% endblock %}
 		</title>
-		<link rel="stylesheet" href="/assets/styles/style.css">
-		<link rel="stylesheet" href="/assets/styles/bootstrap.min.css">
 		<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.15.4/css/all.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,10 +23,11 @@
 	</head>
 
 	<body>
+
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="/"><img id="logo-navbar" src="/assets/images/adopte-un-wilder-logo-blanc-removebg-preview.png" alt="logo-adopte-un-wilder-blanc"></a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
@@ -43,16 +42,16 @@
 				</ul>
 
 				<ul class="navbar-nav">
+					{% if app.user %}
 					<li class="nav-item dropdown">
-						{% if app.user %}
 						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mon compte</a>
 						<div class="dropdown-menu show" data-bs-popper="none">
 							<a class="dropdown-item" href="#">Mon cv</a>
-							<a class="dropdown-item" href="#">Modifier mon profil</a>
+							<a class="dropdown-item" href="{{ path('account') }}">Mon profil</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Se déconnecter</a>
+							<a class="dropdown-item" href="{{ path('logout') }}">Se déconnecter</a>
 							{% else %}
-							<a class="dropdown-item" href="#">Se connecter</a>
+							<a class="dropdown-item" href="{{ path('login') }}">Se connecter</a>
 							{% endif %}
 						</div>
 					</li>
@@ -62,6 +61,7 @@
 	</nav>
 
 		{% block body %}{% endblock %}
+
 
 	<div class="container" id="footer">
 		<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -76,5 +76,6 @@
 			</ul>
 		</footer>
 	</div>
+
 	</body>
 </html>
