@@ -1,44 +1,27 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png"/>
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <link rel="stylesheet" href="/assets/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.15.4/css/all.css">
+</head>
 
-{% block title %}Home{% endblock %}
+<body>
+    <div class="d-flex flex-column justify-content-center w-100 h-100">
 
-{% block stylesheets %}
-{{ parent() }}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-<style>
-    .pink-stripe {
-        height: 50vh;
-        width: 100%;
-        display: flex;
-        font-family: 'Varela Round', sans-serif;
-        font-size: 3rem;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .white-stripe {
-        background-color: white;
-        width: 100vw;
-        height: 50vh;
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        align-items: center;
-        justify-content: center;
-    }
-</style>
-{% endblock %}
-
-{% block body %}
-<div class="pink-stripe">
-    <h1>
-        Let's start coding &#129304;
-    </h1>
-</div>
-<div class="white-stripe ">
-    <img src="https://medinsoft.com/wp-content/uploads/2020/01/LOGO_WILDCODESCHOOL1000-1024x1024.png"
-        style="height:100%">
-</div>
-{% endblock %}
+        <div class="d-flex flex-column justify-content-center align-items-center">
+         <h1 class="fw-light text-white m-0 mb-4">Adopte un Wilder</h1>
+            <img src="/assets/images/adopte-un-wilder-logo-blanc-removebg-preview.png" alt="logo-adopte-un-wilder-blanc">
+            <h5 class="fw-light text-white m-0 mt-4">— Je veux —</h5>
+            <div class="btn-group mt-4 d-flex">
+                <a href="#" class="btn btn-outline-light" aria-current="page">Aller sur mon profil</a>
+                <a href="#" class="btn btn-outline-light">Consulter les profils</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
