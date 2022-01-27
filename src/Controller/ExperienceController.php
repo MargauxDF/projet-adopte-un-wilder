@@ -11,16 +11,23 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
-#[Route('/account', name: '')]
+
+/**
+ * @Route("/account", name="")
+ */
 class ExperienceController extends AbstractController
 {
-    #[Route('/', name: 'index')]
+    /**
+     * @Route("/", name="index")
+     */
     public function index(): Response
     {
         return $this->render('account/index.html.twig');
     }
 
-    #[Route('/experiences', name: 'experiences_index', methods: ['GET', 'POST'])]
+    /**
+     * @Route("/experiences", name="experiences_index", methods={"GET", "POST"})
+     */
     public function addExperience(Request $request, EntityManagerInterface $entityManager, ExperienceRepository $experienceRepository): Response
     {
         $experience = new Experience();
@@ -35,7 +42,7 @@ class ExperienceController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre expérience est ajoutée!'
+                'Votre expérience a été ajoutée!'
             );
 
             return $this->redirectToRoute('experiences_index');
@@ -48,7 +55,9 @@ class ExperienceController extends AbstractController
         ]);
     }
 
-    #[Route('/experiences/{id}/edit', name: 'experience_edit', methods: ['GET', 'POST'])]
+    /**
+     * @Route("/experiences/{id}/edit", name="experience_edit", methods={"GET", "POST"})
+     */
     public function edit(Request $request, EntityManagerInterface $entityManager, Experience $experience, ExperienceRepository $experienceRepository): Response
     {
         $form = $this->createForm(ExperienceType::class, $experience);
@@ -59,7 +68,7 @@ class ExperienceController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre expérience est mise à jour!'
+                'Votre expérience a été mise à jour!'
             );
 
             return $this->redirectToRoute('experiences_index');
@@ -72,7 +81,9 @@ class ExperienceController extends AbstractController
         ]);
     }
 
-    #[Route('/experiences/{id}', name: 'experience_delete', methods: ['GET', 'POST'])]
+    /**
+     * @Route("/experiences/{id}", name="experience_delete", methods={"GET", "POST"})
+     */
     public function delete(Request $request, Experience $experience, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $experience->getId(), (string) $request->request->get('_token'))) {
@@ -81,7 +92,7 @@ class ExperienceController extends AbstractController
 
             $this->addFlash(
                 'delete-success',
-                'Votre expérience est supprimée!'
+                'Votre expérience a été supprimée!'
             );
         }
 
