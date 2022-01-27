@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\InfoType;
+use App\Form\RegisterType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -37,5 +39,23 @@ class InfoController extends AbstractController
     {
         $info = new User();
 
+        $form = $this->createForm(InfoType::class, $info);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($info);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'success',
+                "Vos infos ont été mises à jour avec succès !"
+            );
+
+            return $this->redirectToRoute('account');
+        }
+        return $this->render('info/add.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 }

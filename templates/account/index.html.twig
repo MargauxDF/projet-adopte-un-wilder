@@ -11,11 +11,13 @@
                     </div>
                     <div class="col p-4 d-flex flex-column position-static">
                         <h3 class="mb-0">Mes Infos</h3>
-                        <p class="card-text mb-auto">Présentation : </p>
-                        <p class="card-text mb-auto">Nom :</p>
-                        <p class="card-text mb-auto">Prénom : </p>
-                        <p class="card-text mb-auto">Email : </p>
+                        {% if app.user %}
+                        <p class="card-text mb-auto">Présentation : {{ app.user.presentation }}</p>
+                        <p class="card-text mb-auto">Nom : {{ app.user.lastname }}</p>
+                        <p class="card-text mb-auto">Prénom : {{ app.user.firstname }}</p>
+                        <p class="card-text mb-auto">Email : {{ app.user.email }}</p>
                         <p class="card-text mb-auto">Téléphone : </p>
+                        {% endif %}
                     </div>
 
                 </div>
