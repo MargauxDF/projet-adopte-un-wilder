@@ -34,3 +34,12 @@ body {
     color: floralwhite !important;
     font-size: xxx-large;
 }
+
+*{
+    box-sizing: border-box;
+}
+
+section{
+    padding: 20px;
+
+}
