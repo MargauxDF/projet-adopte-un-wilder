@@ -15,6 +15,10 @@ class RegisterController extends AbstractController
 {
     /**
      * @Route("/inscription", name="register")
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
+     * @param UserPasswordHasherInterface $encoder
+     * @return Response
      */
     public function index(
         Request $request,
@@ -22,6 +26,7 @@ class RegisterController extends AbstractController
         UserPasswordHasherInterface $encoder
     ): Response {
         $user = new User();
+
         $form = $this->createForm(RegisterType::class, $user);
         $form->handleRequest($request);
 
@@ -32,7 +37,12 @@ class RegisterController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('home');
+            $this->addFlash(
+                'success',
+                "Votre compte a bien été créé ! Vous pouvez maintenant vous connecter !"
+            );
+
+            return $this->redirectToRoute('login');
         }
 
         return $this->render('register/index.html.twig', [

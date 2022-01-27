@@ -45,7 +45,6 @@ class RegisterType extends AbstractType
                     ]
                 ]
             )
-            ->add('slug', TextType::class)
             ->add(
                 'email',
                 EmailType::class,
