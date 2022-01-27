@@ -18,7 +18,11 @@
             <img src="/assets/images/adopte-un-wilder-logo-blanc-removebg-preview.png" alt="logo-adopte-un-wilder-blanc">
             <h5 class="fw-light text-white m-0 mt-4">— Je veux —</h5>
             <div class="btn-group mt-4 d-flex">
-                <a href="#" class="btn btn-outline-light" aria-current="page">Aller sur mon profil</a>
+                {% if app.user %}
+                    <a href="{{ path('account') }}" class="btn btn-outline-light" aria-current="page">Aller sur mon profil</a>
+                {% else %}
+                    <a href="{{ path('login') }}" class="btn btn-outline-light" aria-current="page">Aller sur mon profil</a>
+                {% endif %}
                 <a href="#" class="btn btn-outline-light">Consulter les profils</a>
             </div>
         </div>
