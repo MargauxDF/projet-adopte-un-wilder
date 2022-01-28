@@ -12,10 +12,10 @@
                     <img class="card-img-top" src="{{ wilder.url ?? 'https://image.freepik.com/free-vector/coding-concept-illustration_114360-859.jpg' }}" alt="profile-picture">
                 </div>
                 <div class="card-body card-body-wilder">
-                    <a href="{{ path("wilder_show", { slug: wilder.slug }) }}"><p class="card-text title-name-card">{{ wilder.lastname }}{{ wilder.firstname }}</p></a>
+                    <p class="card-text title-name-card">{{ wilder.lastname }} {{ wilder.firstname }}</p>
                     <a class="click-send-email" href="{{ wilder.email|mailTo }}"><i class="fas fa-paper-plane"></i>{{ wilder.email }}</a>
                     <div class="d-flex justify-content-center align-items-center my-2">
-                        <button type="button" class="btn btn-primary btn-sm px-4 py-2">Voir CV {{ wilder.firstname }}</button>
+                        <a href="{{ path("wilder_show", { slug: wilder.slug }) }}" class="btn btn-primary btn-sm px-4 py-2">Voir CV {{ wilder.firstname }}</a>
                     </div>
                 </div>
             </div>
