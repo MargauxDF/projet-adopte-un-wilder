@@ -7,15 +7,15 @@
             <div class="col-md-4">
                 <div class="row g-0 border rounded overflow-hidden mb-4 shadow-lg" id="left-info">
                     <div class="profile-picture p-5">
-                        <img src="https://www.w3schools.com/w3images/avatar2.png" alt="profile-picture">
+                        <img src="{{ app.user.url ?? 'https://image.freepik.com/free-vector/coding-concept-illustration_114360-859.jpg' }}" alt="profile-picture">
                     </div>
-                    <div class="col p-4 d-flex flex-column position-static">
-                        <h3 class="mb-0">Mes Infos</h3>
-                        <p class="card-text mb-auto">Présentation : </p>
-                        <p class="card-text mb-auto">Nom : {{ app.user.lastname }}</p>
-                        <p class="card-text mb-auto">Prénom : {{ app.user.firstname }}</p>
-                        <p class="card-text mb-auto">Email : {{ app.user.email }}</p>
-                        <p class="card-text mb-auto">Téléphone : </p>
+                    <div class="col px-4 d-flex flex-column position-static">
+                        <h2 class="mb-2 pink-color">Mes Infos</h2>
+                        <p class="card-text mb-auto fst-italic">lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, facere quasi? Dolor, doloremque odit optio reiciendis reprehenderit vitae voluptate voluptatum.</p>
+                        <p class="card-text mb-auto"><span class="pink-color">Nom :</span> {{ app.user.lastname }}</p>
+                        <p class="card-text mb-auto"><span class="pink-color">Prénom :</span> {{ app.user.firstname }}</p>
+                        <p class="card-text mb-auto"><span class="pink-color">Email :</span> {{ app.user.email }}</p>
+                        <p class="card-text mb-auto"><span class="pink-color">Téléphone :</span> </p>
                     </div>
 
                 </div>
