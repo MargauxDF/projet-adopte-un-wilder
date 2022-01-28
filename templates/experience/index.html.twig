@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    <div class="container my-5">
         <div class="table-experience">
+            <h2 class="text-center mb-4">Vos Expériences</h2>
             {% for message in app.flashes('success') %}
                 <div class="alert alert-success">
                     {{ message }}
@@ -40,8 +41,9 @@
                     </tbody>
                 </table>
         </div>
-        <div class="form-experience">
-            <h2 class="text-center">Expérience</h2>
+        <hr>
+        <div class="form-experience w-75 mx-auto">
+            <h2 class="text-center mt-5">Expérience</h2>
             {{ form_start(form) }}
             {{ form_widget(form) }}
             <button class="btn btn-primary" type="submit">Sauvegarder</button>

@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="container">
-        <h1>Dashboard ✅</h1>
+        <h1 class="my-4">Bienvenue {{ app.user.firstname}} 😺</h1>
         <div class="row">
             <div class="col-md-4">
                 <div class="row g-0 border rounded overflow-hidden mb-4 shadow-lg" id="left-info">
@@ -12,9 +12,9 @@
                     <div class="col p-4 d-flex flex-column position-static">
                         <h3 class="mb-0">Mes Infos</h3>
                         <p class="card-text mb-auto">Présentation : </p>
-                        <p class="card-text mb-auto">Nom :</p>
-                        <p class="card-text mb-auto">Prénom : </p>
-                        <p class="card-text mb-auto">Email : </p>
+                        <p class="card-text mb-auto">Nom : {{ app.user.lastname }}</p>
+                        <p class="card-text mb-auto">Prénom : {{ app.user.firstname }}</p>
+                        <p class="card-text mb-auto">Email : {{ app.user.email }}</p>
                         <p class="card-text mb-auto">Téléphone : </p>
                     </div>
 
@@ -23,7 +23,7 @@
             <div class="col-md-8">
                 <div class="row g-0 border rounded overflow-hidden mb-4 shadow-lg p-5" id="right-info">
                     <h2 class="">Manage Mes Infos</h2>
-                    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                    <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mb-3 text-center">
                         <div class="col" >
                             <div class="card mb-4 rounded-3 shadow-lg button-dashboard" id="button-info">
                                 <div class="card-body">

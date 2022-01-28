@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Experience;
+use App\Entity\User;
 use App\Form\ExperienceType;
 use App\Repository\ExperienceRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -36,6 +37,8 @@ class ExperienceController extends AbstractController
 
         $form->handleRequest($request);
 
+        $experience->setUser($this->getUser());
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($experience);
             $entityManager->flush();
@@ -50,8 +53,7 @@ class ExperienceController extends AbstractController
 
         return $this->render('experience/index.html.twig', [
             'form' => $form->createView(),
-            // warning TODO: get logged in user instead
-            'experiences' => $experienceRepository->findAll(),
+            'experiences' => $this->getUser()->getExperiences(),
         ]);
     }
 
@@ -77,7 +79,7 @@ class ExperienceController extends AbstractController
         return $this->render('experience/index.html.twig', [
             'experience' => $experience,
             'form' => $form->createView(),
-            'experiences' => $experienceRepository->findAll(),
+            'experiences' => $this->getUser()->getExperiences(),
         ]);
     }
 
