@@ -3,24 +3,24 @@
 {% block body %}
 
 <div class="container">
-    <h1>Tous Nos Wilders</h1>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-            <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-                <div class="card-body">
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                        </div>
-                        <small class="text-muted">9 mins</small>
+    <h1 class="text-center my-5">Tous Nos Wilders</h1>
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-lg-3 row-cols-md-2 g-5">
+        {% for wilder in wilders %}
+        <div class="col mb-4">
+            <div class="card shadow-sm border-card-wilder">
+                <div class="card-img-wilder">
+                    <img class="card-img-top" src="{{ wilder.url ?? 'https://www.w3schools.com/w3images/avatar2.png' }}" alt="profile-picture">
+                </div>
+                <div class="card-body card-body-wilder">
+                    <p class="card-text pink-color title-name-card">{{ wilder.lastname }} {{ wilder.firstname }}</p>
+                    <p class="card-text">Email : {{ wilder.email }}</p>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <button type="button" class="btn btn-primary btn-sm px-4 py-2">Voir {{ wilder.firstname }} CV</button>
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 
