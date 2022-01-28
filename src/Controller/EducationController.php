@@ -2,17 +2,22 @@
 
 namespace App\Controller;
 
+use App\Entity\Education;
+use Composer\DependencyResolver\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/account", name = "")]
+ */
 class EducationController extends AbstractController
 {
-    #[Route('/education', name: 'education')]
+    /**
+     * @Route("/", name = "index")]
+     */
     public function index(): Response
     {
-        return $this->render('education/index.html.twig', [
-            'controller_name' => 'EducationController',
-        ]);
+        return $this->render('account/index.html.twig');
     }
 }
