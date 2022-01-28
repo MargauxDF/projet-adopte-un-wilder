@@ -14,7 +14,7 @@
         </div>
     {% endfor %}
 
-    <section style="width: 60%;">
+    <section class="w-50 mx-auto">
 
         <form action="{{ path('login') }}" method="post">
             {% if app.user %}
@@ -23,18 +23,20 @@
                 </div>
             {% endif %}
 
-            <h1 class="h3 mb-3 font-weight-normal">Connectez-vous à votre espace !</h1>
+            <h1 class="h3 my-5 font-weight-normal text-center">Connectez-vous à votre espace !</h1>
 
-            <label for="username" class="form-label">Email:</label>
+            <label for="username" class="form-label my-2">Email:</label>
             <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}"/>
 
-            <label for="password" class="form-label">Password:</label>
+            <label for="password" class="form-label my-2">Password:</label>
             <input class="form-control" type="password" id="password" name="_password"/>
 
             {# If you want to control the URL the user is redirected to on success
             <input type="hidden" name="_target_path" value="/account"/> #}
+            <div class="button-form mt-4">
+                <button class="btn btn-primary btn-lg w-50" type="submit">Login</button>
+            </div>
 
-            <button class="btn btn-primary mt-2" type="submit">login</button>
         </form>
 
     </section>
