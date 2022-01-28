@@ -83,18 +83,18 @@ class InfoController extends AbstractController
     }
 
     /**
-     * @Route("/infos/{id}/delete", name="infos_delete")
+     * @Route("/infos/{id}", name="infos_delete")
      *
      */
     public function delete(User $info, EntityManagerInterface $entityManager): Response
     {
-        $entityManager->remove($info);
-        $entityManager->flush();
+            $entityManager->remove($info);
+            $entityManager->flush();
 
-        $this->addFlash(
-            'success',
-            "<strong>{$info->getFirstname()}</strong>, Votre compte a ont été supprimé avec succès !"
-        );
+            $this->addFlash(
+                'success',
+                "{$info->getFirstname()}, Votre compte a ont été supprimé avec succès !"
+            );
 
         return $this->redirectToRoute("infos_index");
     }
