@@ -15,7 +15,6 @@ class InfoType extends AbstractType
             ->add('firstname')
             ->add('lastname')
             ->add('email')
-            ->add('password')
             ->add('presentation')
             ->add('picture')
             ->add('linkedin')
