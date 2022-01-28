@@ -82,3 +82,21 @@ section{
 #button-project {
     background-color: darkseagreen;
 }
+/************Form**********/
+.button-form button {
+    display: block;
+    margin: auto;
+}
+
+/************All Wilders Page********/
+.card-img-wilder img {
+    height: 300px;
+    object-fit: cover;
+}
+.pink-color {
+    color: #eb6864;
+}
+.title-name-card {
+    font-size: 20px;
+    font-weight: bold;
+}
