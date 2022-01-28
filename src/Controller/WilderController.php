@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,15 +22,12 @@ class WilderController extends AbstractController
     /**
      * @Route("/wilders/{slug}", name="wilder_show")
      */
-    public function show(string $slug, UserRepository $userRepository, User $user): Response
+    public function show(string $slug, UserRepository $userRepository): Response
     {
-        //$slug = $user->getSlug();
         $wilder = $userRepository->findOneBy(['slug' => $slug]);
 
         return $this->render('wilder/show.html.twig', [
             'wilder' => $wilder,
         ]);
     }
-
-
 }
