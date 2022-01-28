@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class WilderController extends AbstractController
 {
     /**
-     * @Route("/wilders", name="wilder_index")
+     * @Route("/wilders", name="wilders_index")
      */
     public function index(UserRepository $userRepository): Response
     {
