@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\InfoType;
-use App\Form\RegisterType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -30,7 +29,6 @@ class InfoController extends AbstractController
     /**
      * @Route("/infos", name="infos_index", methods={"GET", "POST"})
      * @IsGranted("ROLE_USER")
-     *
      */
     public function addInfo(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -56,13 +54,16 @@ class InfoController extends AbstractController
         ]);
     }
 
-
     /**
      * @Route("/infos/{id}/edit", name="info_edit", methods={"GET", "POST"})
      */
-    public function edit(Request $request, EntityManagerInterface $entityManager, User $info, UserRepository $infoRepository): Response
-    {
-        $form = $this->createForm(InfoType::class, $info);
+    public function edit(
+        Request $request,
+        EntityManagerInterface $entityManager,
+        User $user
+    ): Response {
+
+        $form = $this->createForm(InfoType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -77,25 +78,27 @@ class InfoController extends AbstractController
         }
 
         return $this->render('info/index.html.twig', [
-            'info' => $info,
+            'user' => $user,
             'form' => $form->createView(),
         ]);
     }
 
     /**
      * @Route("/infos/{id}", name="infos_delete")
-     *
      */
-    public function delete(User $info, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
-            $entityManager->remove($info);
-            $entityManager->flush();
+        $this->get('security.token_storage')->setToken(null);
+        $request->getSession()->invalidate();
 
-            $this->addFlash(
-                'success',
-                "{$info->getFirstname()}, Votre compte a ont été supprimé avec succès !"
-            );
+        $entityManager->remove($user);
+        $entityManager->flush();
 
-        return $this->redirectToRoute("infos_index");
+        $this->addFlash(
+            'success',
+            "{$user->getFirstname()}, Votre compte a été supprimé avec succès, mais nous serions ravis de vous retrouver parmi nous !"
+        );
+
+        return $this->redirectToRoute("register");
     }
 }
