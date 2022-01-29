@@ -33,11 +33,12 @@
 
             {# If you want to control the URL the user is redirected to on success
             <input type="hidden" name="_target_path" value="/account"/> #}
-            <div class="button-form mt-4">
-                <button class="btn btn-primary btn-lg w-50" type="submit">Login</button>
-            </div>
+
+            <button class="btn btn-primary btn-lg mt-2" type="submit">Login</button>
 
         </form>
+
+        <a href="{{ path('register') }}"><p class="text-center mt-4">Pas encore inscrit.e ?<b> Inscrivez-vous !</b></p></a>
 
     </section>
 

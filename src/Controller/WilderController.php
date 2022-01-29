@@ -18,4 +18,16 @@ class WilderController extends AbstractController
             'wilders' => $userRepository->findAll(),
         ]);
     }
+
+    /**
+     * @Route("/wilders/{slug}", name="wilder_show")
+     */
+    public function show(string $slug, UserRepository $userRepository): Response
+    {
+        $wilder = $userRepository->findOneBy(['slug' => $slug]);
+
+        return $this->render('wilder/show.html.twig', [
+            'wilder' => $wilder,
+        ]);
+    }
 }

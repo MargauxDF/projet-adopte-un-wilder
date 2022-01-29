@@ -2,20 +2,20 @@
 
 {% block body %}
     <div class="container">
-        <h1 class="my-4">Bienvenue {{ app.user.firstname}} 😺</h1>
+        <h1 class="my-4">Bienvenue {{ app.user.firstname }} 😺</h1>
         <div class="row">
             <div class="col-md-4">
                 <div class="row g-0 border rounded overflow-hidden mb-4 shadow-lg" id="left-info">
-                    <div class="profile-picture p-5">
+                    <div class="profile-picture">
                         <img src="{{ app.user.url ?? 'https://image.freepik.com/free-vector/coding-concept-illustration_114360-859.jpg' }}" alt="profile-picture">
                     </div>
                     <div class="col px-4 d-flex flex-column position-static">
                         <h2 class="mb-2 pink-color">Mes Infos</h2>
-                        <p class="card-text mb-auto fst-italic">lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, facere quasi? Dolor, doloremque odit optio reiciendis reprehenderit vitae voluptate voluptatum.</p>
+                        <p class="card-text mb-2 fst-italic">lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, facere quasi? Dolor, doloremque odit optio reiciendis reprehenderit vitae voluptate voluptatum.</p>
                         <p class="card-text mb-auto"><span class="pink-color">Nom :</span> {{ app.user.lastname }}</p>
                         <p class="card-text mb-auto"><span class="pink-color">Prénom :</span> {{ app.user.firstname }}</p>
                         <p class="card-text mb-auto"><span class="pink-color">Email :</span> {{ app.user.email }}</p>
-                        <p class="card-text mb-auto"><span class="pink-color">Téléphone :</span> </p>
+                        <p class="card-text mb-auto"><span class="pink-color">Téléphone :</span> 06 09 98 07 65</p>
                     </div>
 
                 </div>
@@ -27,21 +27,21 @@
                         <div class="col" >
                             <div class="card mb-4 rounded-3 shadow-lg button-dashboard" id="button-info">
                                 <div class="card-body">
-                                    <a href=""  class="">Ajouter<br> Infos</a>
+                                    <a class="" href="{{ path('infos_index') }}">Ajouter<br>Infos</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col" >
                             <div class="card mb-4 rounded-3 shadow-lg button-dashboard" id="button-skill">
                                 <div class="card-body">
-                                    <a href=""  class="">Ajouter<br> Compétences</a>
+                                    <a href=""  class="">Ajouter<br>Compétences</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col">
                             <div class="card mb-4 rounded-3 shadow-lg button-dashboard" id="button-experience">
                                 <div class="card-body">
-                                    <a href="{{ path("experiences_index") }}"  class="">Ajouter<br> Expériences</a>
+                                    <a href="{{ path("experiences_index") }}"  class="">Ajouter<br>Expériences</a>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +55,14 @@
                         <div class="col">
                             <div class="card mb-4 rounded-3 shadow-lg button-dashboard" id="button-project">
                                 <div class="card-body">
-                                    <a href=""  class="">Ajouter<br> Projets</a>
+                                    <a href=""  class="">Ajouter<br>Projets</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card mb-4 rounded-3 shadow-lg button-dashboard bg-secondary" id="button-cv">
+                                <div class="card-body">
+                                    <a href="" class="">Voir<br>Mon CV</a>
                                 </div>
                             </div>
                         </div>
@@ -66,3 +73,4 @@
     </div>
 
 {% endblock %}
+

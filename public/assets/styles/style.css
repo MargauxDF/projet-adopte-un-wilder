@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+*{
+    box-sizing: border-box;
+}
+
+section{
+    padding: 20px;
+}
+
 /* rose utilisé dans la navbar:#eb6864 */
 
 /*********** Navbar ***********/
@@ -33,15 +41,6 @@
     font-family: "Pacifico", cursive;
     color: floralwhite !important;
     font-size: xxx-large;
-}
-
-*{
-    box-sizing: border-box;
-}
-
-section{
-    padding: 20px;
-
 }
 
 /********** Account Page *********/
@@ -106,4 +105,14 @@ section{
 .click-send-email {
     text-decoration: none;
     font-size: 20px;
+}
+
+/************ CV Page********/
+
+.background-cv{
+    width: 95%;
+    padding: 30px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 25%), 0 6px 20px 0 rgb(0 0 0 / 25%)
 }

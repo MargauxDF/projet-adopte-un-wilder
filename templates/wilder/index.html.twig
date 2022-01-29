@@ -13,9 +13,9 @@
                 </div>
                 <div class="card-body card-body-wilder">
                     <p class="card-text title-name-card">{{ wilder.lastname }} {{ wilder.firstname }}</p>
-                    <a class="click-send-email" href="{{ wilder.email|mailTo }}"><i class="fas fa-paper-plane"></i> {{ wilder.email }}</a>
+                    <a class="click-send-email" href="{{ wilder.email|mailTo }}"><i class="fas fa-paper-plane"></i>{{ wilder.email }}</a>
                     <div class="d-flex justify-content-center align-items-center my-2">
-                        <button type="button" class="btn btn-primary btn-sm px-4 py-2">Voir {{ wilder.firstname }} CV</button>
+                        <a href="{{ path("wilder_show", { slug: wilder.slug }) }}" class="btn btn-primary btn-sm px-4 py-2">Voir CV {{ wilder.firstname }}</a>
                     </div>
                 </div>
             </div>

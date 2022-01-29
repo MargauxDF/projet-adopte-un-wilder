@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
-
 /**
  * @Route("/account", name="")
  */
@@ -70,7 +69,7 @@ class ExperienceController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre expérience a été mise à jour!'
+                'Votre expérience a été mise à jour avec succès !'
             );
 
             return $this->redirectToRoute('experiences_index');
@@ -94,7 +93,7 @@ class ExperienceController extends AbstractController
 
             $this->addFlash(
                 'delete-success',
-                'Votre expérience a été supprimée!'
+                'Votre expérience a été supprimée avec succcès !'
             );
         }
 
