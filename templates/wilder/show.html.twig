@@ -6,35 +6,42 @@
 
         <div class="infos d-flex justify-content-between">
 
-            <div class="user-picture">
-                <img width="150px" src="{{ wilder.url ?? '/assets/images/user.png'}}" alt="profile-picture">
+            <div class="user-picture d-flex">
+                <img width="250px" src="{{ wilder.url ?? '/assets/images/user.png'}}" alt="profile-picture">
+                <div class="cv-name-title mt-5">
+                    <h2 class="pink-color">{{ wilder.firstname }} <span class="text-uppercase">{{ wilder.lastname }}</span> </h2>
+                </div>
             </div>
-            <div>
-                <p>{{ wilder.linkedin }}</p>
-                <p>{{ wilder.github }}</p>
-                <p>{{ wilder.twitter }}</p>
-                <p>{{ wilder.portfolio }}</p>
+            <div class="group-infos">
+                <p><a class="" href="{{ wilder.email|mailTo }}"><i class="fas fa-envelope-open-text mx-2"></i>{{ wilder.email }}</a></p>
+                <p><i class="fas fa-phone-square-alt mx-2"></i> 06 05 04 03 01</p>
+                {% if wilder.linkedin %}
+                    <p><a href="{{ wilder.linkedin }}"><i class="fab fa-linkedin mx-2"></i>{{ wilder.linkedin }}</a></p>
+                {% endif %}
+                {% if wilder.github %}
+                    <p><a href="{{ wilder.github  }}"><i class="fab fa-github mx-2"></i>{{ wilder.github  }}</a></p>
+                {% endif %}
+                {% if wilder.twitter %}
+                    <p><a href="{{ wilder.twitter }}"><i class="fab fa-twitter-square mx-2"></i>{{ wilder.twitter }}</a></p>
+                {% endif %}
+                {% if wilder.portfolio %}
+                    <p><a href="{{ wilder.portfolio }}"><i class="fas fa-laptop mx-2"></i>{{ wilder.portfolio }}</a></p>
+                {% endif %}
             </div>
-            <div>
-                <p>Prénom : {{ wilder.firstname }}</p>
-                <p>Nom : {{ wilder.lastname }}</p>
-                <p>Email : {{ wilder.email }}</p>
-                <p>Téléphone : 06 05 04 03 01</p>
-            </div>
-
         </div>
+    </section>
+    <section class="background-cv mt-4">
+        <div class="presentation-cv">
+            <p class="add-new-line">{{ wilder.presentation ?? 'Bonjour, je suis un Wilder motivé et compétent !' }}</p>
+        </div>
+    </section>
 
-        <hr>
-
-        <i><p>{{ wilder.presentation ?? 'Bonjour, je suis un Wilder motivé et compétent !' }}</p></i>
-
-        <hr>
-
+    <section class="background-cv mt-4">
         <div class="skills">
             <h1 class="h3 text-center">Compétences</h1>
         </div>
-
-        <hr>
+    </section>
+    <section class="background-cv mt-4">
 
         <div class="experiences">
             <h1 class="h3 text-center">Expérience</h1>
@@ -48,15 +55,15 @@
 
                 {% endfor %}
         </div>
+    </section>
 
-        <hr>
-
+    <section class="background-cv mt-4">
         <div class="education text-center">
             <h1 class="h3">Formation</h1>
         </div>
+    </section>
 
-        <hr>
-
+    <section class="background-cv mt-4">
         <div class="projects text-center">
             <h1 class="h3">Mes Projets</h1>
         </div>
