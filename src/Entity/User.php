@@ -60,6 +60,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
+    private ?string $pictureFilename;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private ?string $telephone;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private ?string $linkedin;
 
     /**
@@ -194,6 +204,38 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->picture = $picture;
 
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPictureFilename(): ?string
+    {
+        return $this->pictureFilename;
+    }
+
+    /**
+     * @param string|null $pictureFilename
+     */
+    public function setPictureFilename(?string $pictureFilename): void
+    {
+        $this->pictureFilename = $pictureFilename;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * @param string|null $telephone
+     */
+    public function setTelephone(?string $telephone): void
+    {
+        $this->telephone = $telephone;
     }
 
     public function getLinkedin(): ?string
