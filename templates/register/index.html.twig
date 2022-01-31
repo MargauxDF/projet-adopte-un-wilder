@@ -4,13 +4,21 @@
 
 {% block body %}
 
-    <h1> Inscrivez-vous !</h1>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
 
-    <section style="width: 60%">
+    <h1 class="text-center mt-5"> Inscrivez-vous !</h1>
+
+    <section class="w-50 mx-auto">
         {{ form_start(form) }}
         {{ form_widget(form) }}
-        <button class="btn btn-primary">{{ button_label|default('Inscrivez-vous !') }}
-        </button>
+        <div class="button-form mt-4">
+            <button class="btn btn-primary btn-lg ">{{ button_label|default('Inscrivez-vous !') }}
+            </button>
+        </div>
         {{ form_end(form) }}
     </section>
 

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Experience;
+use App\Entity\User;
 use App\Form\ExperienceType;
 use App\Repository\ExperienceRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -10,7 +11,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-
 
 /**
  * @Route("/account", name="")
@@ -36,6 +36,8 @@ class ExperienceController extends AbstractController
 
         $form->handleRequest($request);
 
+        $experience->setUser($this->getUser());
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($experience);
             $entityManager->flush();
@@ -50,8 +52,7 @@ class ExperienceController extends AbstractController
 
         return $this->render('experience/index.html.twig', [
             'form' => $form->createView(),
-            // warning TODO: get logged in user instead
-            'experiences' => $experienceRepository->findAll(),
+            'experiences' => $this->getUser()->getExperiences(),
         ]);
     }
 
@@ -68,7 +69,7 @@ class ExperienceController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre expérience a été mise à jour!'
+                'Votre expérience a été mise à jour avec succès !'
             );
 
             return $this->redirectToRoute('experiences_index');
@@ -77,7 +78,7 @@ class ExperienceController extends AbstractController
         return $this->render('experience/index.html.twig', [
             'experience' => $experience,
             'form' => $form->createView(),
-            'experiences' => $experienceRepository->findAll(),
+            'experiences' => $this->getUser()->getExperiences(),
         ]);
     }
 
@@ -92,7 +93,7 @@ class ExperienceController extends AbstractController
 
             $this->addFlash(
                 'delete-success',
-                'Votre expérience a été supprimée!'
+                'Votre expérience a été supprimée avec succcès !'
             );
         }
 
