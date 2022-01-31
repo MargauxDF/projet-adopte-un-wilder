@@ -4,11 +4,13 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\InfoType;
+use App\Service\FileUploader;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,16 +32,24 @@ class InfoController extends AbstractController
      * @Route("/infos", name="infos_index", methods={"GET", "POST"})
      * @IsGranted("ROLE_USER")
      */
-    public function addInfo(Request $request, EntityManagerInterface $entityManager): Response
+    public function addInfo(Request $request, EntityManagerInterface $entityManager, FileUploader $fileUploader): Response
     {
-        $info = new User();
+        $user = new User();
 
-        $form = $this->createForm(InfoType::class, $info);
+        $form = $this->createForm(InfoType::class, $user);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($info);
+
+            /** @var UploadedFile $pictureFile */
+            $pictureFile = $form->get('picture')->getData();
+            if ($pictureFile) {
+                $pictureFileName = $fileUploader->upload($pictureFile);
+                $user->setPictureFilename($pictureFileName);
+            }
+
+            $entityManager->persist($user);
             $entityManager->flush();
 
             $this->addFlash(
@@ -60,13 +70,22 @@ class InfoController extends AbstractController
     public function edit(
         Request $request,
         EntityManagerInterface $entityManager,
-        User $user
+        User $user,
+        FileUploader $fileUploader
     ): Response {
 
         $form = $this->createForm(InfoType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            /** @var UploadedFile $pictureFile */
+            $pictureFile = $form->get('picture')->getData();
+            if ($pictureFile) {
+                $pictureFileName = $fileUploader->upload($pictureFile);
+                $user->setPictureFilename($pictureFileName);
+            }
+
             $entityManager->flush();
 
             $this->addFlash(

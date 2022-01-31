@@ -7,7 +7,7 @@
         <div class="infos d-flex justify-content-between">
 
             <div class="user-picture">
-                <img width="150px" src="{{ wilder.url ?? '/assets/images/user.png'}}" alt="profile-picture">
+                <img width="150px" src="/uploads/pictures/{{ wilder.pictureFilename ?? '/assets/images/user.png'}}" alt="profile-picture">
             </div>
             <div>
                 <p>{{ wilder.linkedin }}</p>
@@ -19,7 +19,7 @@
                 <p>Prénom : {{ wilder.firstname }}</p>
                 <p>Nom : {{ wilder.lastname }}</p>
                 <p>Email : {{ wilder.email }}</p>
-                <p>Téléphone : 06 05 04 03 01</p>
+                <p>Téléphone : {{ wilder.telephone }}</p>
             </div>
 
         </div>
