@@ -33,7 +33,7 @@
                     </tr>
                     <tr>
                         <th scope="row">Photo</th>
-                        <td class="align-middle">{{ app.user.picture }} </td>
+                        <td class="align-middle">{{ app.user.pictureFilename }} </td>
                     </tr>
                     <tr>
                         <th scope="row">Lien Linkedin</th>
@@ -65,6 +65,7 @@
         <div class="form-experience w-75 mx-auto">
             <h2 class="text-center mt-5">Mettre à jour mes infos</h2>
             {{ form_start(form) }}
+            {{ form_row(form.picture) }}
             {{ form_widget(form) }}
             <button class="btn btn-primary" type="submit">Sauvegarder</button>
             {{ form_end(form) }}
