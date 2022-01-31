@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Dashboard ✅</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row g-0 border rounded overflow-hidden mb-4 shadow-lg" id="left-info">
+                    <div class="profile-picture p-5">
+                        <img src="https://www.w3schools.com/w3images/avatar2.png" alt="profile-picture">
+                    </div>
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">Mes Infos</h3>
+                        <p class="card-text mb-auto">Présentation : </p>
+                        <p class="card-text mb-auto">Nom :</p>
+                        <p class="card-text mb-auto">Prénom : </p>
+                        <p class="card-text mb-auto">Email : </p>
+                        <p class="card-text mb-auto">Téléphone : </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row g-0 border rounded overflow-hidden mb-4 shadow-lg p-5" id="right-info">
+                    <h2 class="">Manage Mes Infos</h2>
+                    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                        <div class="col" >
+                            <div class="card mb-4 rounded-3 shadow-lg button-dashboard" id="button-info">
+                                <div class="card-body">
+                                    <a href=""  class="">Ajouter<br> Infos</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" >
+                            <div class="card mb-4 rounded-3 shadow-lg button-dashboard" id="button-skill">
+                                <div class="card-body">
+                                    <a href=""  class="">Ajouter<br> Compétences</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card mb-4 rounded-3 shadow-lg button-dashboard" id="button-experience">
+                                <div class="card-body">
+                                    <a href="{{ path("experiences_index") }}"  class="">Ajouter<br> Expériences</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card mb-4 rounded-3 shadow-lg button-dashboard" id="button-education">
+                                <div class="card-body">
+                                    <a href=""  class="">Ajouter<br> Formations</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card mb-4 rounded-3 shadow-lg button-dashboard" id="button-project">
+                                <div class="card-body">
+                                    <a href=""  class="">Ajouter<br> Projets</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

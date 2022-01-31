@@ -18,3 +18,4 @@
 /phpcs.xml
 ###< squizlabs/php_codesniffer ###
 /.idea
+.DS_Store
