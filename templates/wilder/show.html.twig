@@ -6,7 +6,7 @@
 
         <div class="infos d-flex justify-content-between">
             <div class="user-picture d-flex">
-                <img width="250px" src="{{ wilder.url ?? '/assets/images/user.png'}}" alt="profile-picture">
+                <img width="250px" src="/uploads/pictures/{{ wilder.pictureFilename ?? 'user.png' }}" alt="profile-picture">
                 <div class="cv-name-title mt-5">
                     <h3 class="pink-color">{{ wilder.firstname }} <span class="text-uppercase">{{ wilder.lastname }}</span> </h3>
                     <h4 class="blue-color"><i class="fas fa-code"></i> Dévelopeuse PHP/Symfony</h4>

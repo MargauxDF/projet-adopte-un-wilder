@@ -161,4 +161,7 @@ section{
 .bg-blue {
     background-color: #007FFF;
 }
+.user-picture img {
+    border-radius: 50%;
+}
 
