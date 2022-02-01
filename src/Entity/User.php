@@ -107,6 +107,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private array $roles = [];
 
+    /**
+     * @ORM\ManyToOne(targetEntity=LabelCv::class)
+     */
+    private ?LabelCv $labelCv;
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
@@ -420,5 +425,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getSalt()
     {
         // TODO: Implement getSalt() method.
+    }
+
+    public function getLabelCv(): ?LabelCv
+    {
+        return $this->labelCv;
+    }
+
+    public function setLabelCv(?LabelCv $labelCv): void
+    {
+        $this->labelCv = $labelCv;
     }
 }
