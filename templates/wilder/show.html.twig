@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <section class="background-cv mt-4 w-75 cv">
+    <section class="background-cv mt-4 w-75" id="cv">
         <div class="d-print-none">
             <div class="d-flex justify-content-end small"><a href="javascript: void(0);" onclick="window.print();"><i class="fas fa-download"></i> Télécharger la version PDF (par l'impression) !</a></div>
         </div>
@@ -38,14 +38,15 @@
             </div>
         </div>
     </section>
-    <section class="background-cv mt-4 w-75">
+
+    <section class="background-cv mt-4 w-75" id="about">
         <div class="presentation-cv width-85 mx-auto">
             <h3 class="pink-color text-center text-capitalize">à propos</h3>
             <p class="add-new-line fst-italic mt-3">{{ wilder.presentation ?? 'Bonjour, je suis un Wilder motivé et compétent !' }}</p>
         </div>
     </section>
 
-    <section class="background-cv mt-4 w-75">
+    <section class="background-cv mt-4 w-75" id="skills">
         <div class="skills">
             <h3 class="text-center mb-5 pink-color">Compétences</h3>
             <div class="skill-cv d-flex justify-content-around">
@@ -56,9 +57,9 @@
             </div>
         </div>
     </section>
-    <section class="background-cv mt-4 w-75">
+    <section class="background-cv mt-4 w-75" id="experiences">
         <div class="experiences px-5">
-            <h3 class="text-center mb-4 pink-color">Expériences</h3>
+            <h3 class="text-center mb-4 pink-color">Expérience</h3>
             <div class="ex-cv">
                 {% for experience in wilder.experiences %}
                     <div class="row d-flex">
@@ -78,9 +79,9 @@
         </div>
     </section>
 
-    <section class="background-cv mt-4 w-75">
+    <section class="background-cv mt-4 w-75" id="formation">
         <div class="education px-5">
-            <h3 class="text-center pink-color mb-4">Formations</h3>
+            <h3 class="text-center pink-color mb-4">Formation</h3>
             <div class="school-cv">
                 {% for education in wilder.educations %}
                     <div class="row d-flex">
@@ -100,7 +101,7 @@
         </div>
     </section>
 
-    <section class="background-cv mt-4 w-75">
+    <section class="background-cv mt-4 w-75" id="projects">
         <div class="projects text-center">
             <h1 class="h3">Mes Projets</h1>
         </div>

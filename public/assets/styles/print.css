@@ -1,14 +1,9 @@
-#idendity {
-    margin-bottom: 0;
-}
-
-.cv, #idendity {
+#cv {
     padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
 }
 
-.cv {
-    padding-bottom: 0;
-}
 
 .profile-pic {
     width: 80px;
