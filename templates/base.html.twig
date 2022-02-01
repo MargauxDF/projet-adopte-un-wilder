@@ -10,8 +10,9 @@
 	<title>
 		{% block title %}{% endblock %}
 	</title>
-	<link rel="stylesheet" href="/assets/styles/style.css">
-	<link rel="stylesheet" href="/assets/styles/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ asset('assets/styles/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/styles/print.css') }}" media="print">
+	<link rel="stylesheet" href="{{ asset('assets/styles/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.15.4/css/all.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
