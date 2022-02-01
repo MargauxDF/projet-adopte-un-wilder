@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma formation{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="table-education">
+            <h2 class="text-center mb-4">Vos Formations</h2>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('delete-success') %}
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="align-middle" scope="col" style="width: auto">Année</th>
+                    <th class="align-middle" scope="col" style="width: auto">Titre</th>
+                    <th class="align-middle" scope="col" style="width: auto">Ecole</th>
+                    <th class="align-middle" scope="col" style="width: auto">Ville</th>
+                    <th class="align-middle" scope="col" style="width: 30%">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for education in educations %}
+                    <tr>
+                        <td class="align-middle">{{ education.year }}</td>
+                        <td class="align-middle">{{ education.title }}</td>
+                        <td class="align-middle">{{ education.school }}</td>
+                        <td class="align-middle">{{ education.city }}</td>
+                        <td class="align-middle">{{ education.Description }}</td>
+                        <td class="align-middle"><a class="btn btn-primary px-3 mx-3 justify-content-end" href="{{ path("education_edit", {id: education.id}) }}"><i class="fas fa-edit"></i></a>
+                            {{ include('education/_form_delete.html.twig') }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="form-educationw-75 mx-auto">
+            <h2 class="text-center mt-5">Formations</h2>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-primary" type="submit">Sauvegarder</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

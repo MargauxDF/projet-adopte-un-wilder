@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img id="logo-navbar" src="/assets/images/adopte-un-wilder-logo-blanc-removebg-preview.png" alt="logo-adopte-un-wilder-blanc"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ path('wilder_index') }}">Nos Wilders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">A propos</a>
+                </li>
+            </ul>
+            {% if app.user %}
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mon compte</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ path('cv_account') }}">Mon cv</a>
+                            <a class="dropdown-item" href="{{ path('account') }}">Mon profil</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ path('logout') }}">Deconnexion</a>
+                        </div>
+                    </li>
+                </ul>
+            {% else %}
+                <a class="text-white text-decoration-none" href="{{ path('login') }}">Connexion &nbsp; | &nbsp;</a>
+                <a class="text-white text-decoration-none" href="{{ path('register') }}"> Inscription</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
