@@ -6,7 +6,7 @@
 
         <div class="infos d-flex justify-content-between">
             <div class="user-picture d-flex">
-                <img width="250px" src="/uploads/pictures/{{ wilder.pictureFilename ?? 'user.png' }}" alt="profile-picture">
+                <img src="/uploads/pictures/{{ wilder.pictureFilename ?? 'user.png' }}" alt="profile-picture">
                 <div class="cv-name-title mt-5">
                     <h3 class="pink-color">{{ wilder.firstname }} <span class="text-uppercase">{{ wilder.lastname }}</span> </h3>
                     <h4 class="blue-color"><i class="fas fa-code"></i> Dévelopeuse PHP/Symfony</h4>
@@ -43,7 +43,13 @@
 
     <section class="background-cv mt-4 w-75">
         <div class="skills">
-            <h3 class="text-center mb-5">Compétences</h3>
+            <h3 class="text-center mb-5 pink-color">Compétences</h3>
+            <div class="skill-cv d-flex justify-content-around">
+                {% for skill in wilder.skills %}
+                    <img width="50px" src="{{ skill.url }}" alt="">
+
+                {% endfor %}
+            </div>
         </div>
     </section>
     <section class="background-cv mt-4 w-75">
@@ -69,8 +75,24 @@
     </section>
 
     <section class="background-cv mt-4 w-75">
-        <div class="education text-center">
-            <h1 class="h3">Formation</h1>
+        <div class="education px-5">
+            <h3 class="text-center pink-color mb-4">Formations</h3>
+            <div class="school-cv">
+                {% for education in wilder.educations %}
+                    <div class="row d-flex">
+                        <div class="col-md-4">
+                            <p class="fw-bold mt-1 badge bg-blue"><i class="far fa-calendar-check"></i> {{ education.year }}</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="fw-bold ex-title-cv gray-color"><i class="fas fa-angle-double-left blue-color"></i>{{ education.title }}<i class="fas fa-angle-double-right blue-color"></i></p>
+                            <p><span class="fst-italic">{{ education.school }} </span>,{{ education.city }}</p>
+                            {% if education.description %}
+                                <p class="add-new-line">{{ education.description }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </section>
 

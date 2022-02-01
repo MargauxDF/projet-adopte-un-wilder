@@ -53,6 +53,7 @@ section{
 }
 .profile-picture img {
     width: 100%;
+    padding: 30px;
 }
 .button-dashboard {
     height: 100%;
@@ -91,6 +92,10 @@ section{
 .card-img-wilder img {
     height: 300px;
     object-fit: cover;
+    border-radius: 50%;
+    width: 300px;
+    margin: auto;
+    display: block;
 }
 .pink-color {
     color: #eb6864;
@@ -150,7 +155,7 @@ section{
     width: 85%;
 }
 .blue-color {
-    color: #007FFF;
+    color: #336699;
 }
 .ex-title-cv {
     font-size: 20px;
@@ -159,9 +164,14 @@ section{
     color: #404040;
 }
 .bg-blue {
-    background-color: #007FFF;
+    background-color: #336699;
 }
 .user-picture img {
     border-radius: 50%;
+    width: 250px;
+    object-fit: cover;
+}
+.logo-skill-cv img {
+    width: 100%;
 }
 
