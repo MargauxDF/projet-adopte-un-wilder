@@ -6,11 +6,8 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-<<<<<<< HEAD
-        "php": ">=7.2.5",
-=======
+
         "php": ">=7.4",
->>>>>>> ec99b90cc5de63ed553bc1e33a82736eb3aaff6e
         "ext-ctype": "*",
         "ext-iconv": "*",
         "cocur/slugify": "^4.1",
