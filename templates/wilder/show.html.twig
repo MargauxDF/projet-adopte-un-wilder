@@ -11,10 +11,11 @@
                     <h3 class="pink-color">{{ wilder.firstname }} <span class="text-uppercase">{{ wilder.lastname }}</span> </h3>
                     <h4 class="blue-color"><i class="fas fa-code"></i> Dévelopeuse PHP/Symfony</h4>
                 </div>
+
             </div>
             <div class="group-infos">
                 <p><a class="" href="{{ wilder.email|mailTo }}"><i class="fas fa-envelope-open-text mx-2"></i>{{ wilder.email }}</a></p>
-                <p><i class="fas fa-phone-square-alt mx-2"></i> 06 05 04 03 01</p>
+                <p><i class="fas fa-phone-square-alt mx-2"></i>{{ wilder.telephone }}</p>
                 {% if wilder.portfolio %}
                     <p><a target="_blank" href="{{ wilder.portfolio }}"><i class="fas fa-laptop mx-2"></i>Portfolio</a></p>
                 {% endif %}
