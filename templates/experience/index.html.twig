@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Mes expériences{% endblock %}
+
 {% block body %}
     <div class="container my-5">
         <div class="table-experience">
-            <h2 class="text-center mb-4">Vos Expériences</h2>
+            <h2 class="text-center mb-4">Mes Expériences</h2>
             {% for message in app.flashes('success') %}
                 <div class="alert alert-success">
                     {{ message }}
