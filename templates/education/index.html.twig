@@ -3,18 +3,53 @@
 {% block title %}Ma formation{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container my-5">
+        <div class="table-education">
+            <h2 class="text-center mb-4">Vos Formations</h2>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('delete-success') %}
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th class="align-middle" scope="col" style="width: 18%">Année</th>
+                    <th class="align-middle" scope="col" style="width: 15%">Titre</th>
+                    <th class="align-middle" scope="col" style="width: 14%">Ecole</th>
+                    <th class="align-middle" scope="col" style="width: 10%">Ville</th>
+                    <th class="align-middle" scope="col" style="width: 13%">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for education in educations %}
+                    <tr>
+                        <td class="align-middle">{{ education.year }}</td>
+                        <td class="align-middle">{{ education.title }}</td>
+                        <td class="align-middle">{{ education.school }}</td>
+                        <td class="align-middle">{{ education.city }}</td>
+                        <td class="align-middle">{{ education.Description }}</td>
+                        <td class="align-middle"><a style="float: left" class="btn btn-primary px-3 mx-3" href="{{ path("education_edit", {id: education.id}) }}"><i class="fas fa-edit"></i></a>
+                            {{ include('education/_form_delete.html.twig') }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="form-educationw-75 mx-auto">
+            <h2 class="text-center mt-5">Formations</h2>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-primary" type="submit">Sauvegarder</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/margauxdefilippis/Desktop/WildCodeSchool/projet/projet3/adopte-un-wilder/src/Controller/EducationController.php'|file_link(0) }}">src/Controller/EducationController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/margauxdefilippis/Desktop/WildCodeSchool/projet/projet3/adopte-un-wilder/templates/education/index.html.twig'|file_link(0) }}">templates/education/index.html.twig</a></code></li>
-    </ul>
-</div>
 {% endblock %}
