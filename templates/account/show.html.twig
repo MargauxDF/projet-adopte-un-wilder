@@ -7,7 +7,7 @@
         {% if app.user %}
         <div class="infos d-flex justify-content-between">
             <div class="user-picture">
-                <a class="text-decoration-none" href="{{ path('infos_index') }}"><img width="150px" src="/uploads/pictures/{{ app.user.pictureFilename ?? '/assets/images/user.png' }}" alt="profile-picture">
+                <a class="text-decoration-none" href="{{ path('infos_index') }}"><img width="150px" src="/uploads/pictures/{{ app.user.pictureFilename ?? 'user.png' }}" alt="profile-picture">
                     <i class="fas fa-2x fa-user-edit"></i>
                 </a>
             </div>

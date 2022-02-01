@@ -7,11 +7,11 @@
             <div class="col-md-4">
                 <div class="row g-0 border rounded overflow-hidden mb-4 shadow-lg" id="left-info">
                     <div class="profile-picture">
-                        <img src="{{ app.user.url ?? 'https://image.freepik.com/free-vector/coding-concept-illustration_114360-859.jpg' }}" alt="profile-picture">
+                        <img src="/uploads/pictures/{{ app.user.pictureFilename ?? 'user.png' }}" alt="profile-picture">
                     </div>
                     <div class="col px-4 d-flex flex-column position-static">
                         <h2 class="mb-2 pink-color">Présentation</h2>
-                        <p class="card-text mb-2 fst-italic">{{ app.user.presentation ?? 'Bonjour, je suis un Wilder motivé et compétent.<br> Je suis à la recherche d\'un CDI de développeur PHP.' }}</p>
+                        <p class="card-text mb-2 fst-italic add-new-line">{{ app.user.presentation ?? 'Bonjour, je suis un Wilder motivé et compétent.<br> Je suis à la recherche d\'un CDI de développeur PHP.' }}</p>
                         <p class="card-text mb-auto"><span class="pink-color">Nom :</span> {{ app.user.lastname }}</p>
                         <p class="card-text mb-auto"><span class="pink-color">Prénom :</span> {{ app.user.firstname }}</p>
                         <p class="card-text mb-auto"><span class="pink-color">Email :</span> {{ app.user.email }}</p>
@@ -91,4 +91,3 @@
     </div>
 
 {% endblock %}
-
