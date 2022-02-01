@@ -16,4 +16,12 @@ class AccountController extends AbstractController
     {
         return $this->render('account/index.html.twig');
     }
+
+    /**
+     * @Route("/account/cv", name="cv_account")
+     */
+    public function showCV(): Response
+    {
+        return $this->render('account/show.html.twig');
+    }
 }

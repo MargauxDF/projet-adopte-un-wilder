@@ -51,11 +51,11 @@ class SkillController extends AbstractController
         }
         // Render the form
         return $this->render('skill/index.html.twig', [
-        "form" => $form->createView(),
+        'form' => $form->createView(),
         'skills' => $this->getUser()->getSkills(),
         ]);
     }
-        /**
+    /**
      * @Route("/skills/{id}/edit", name="skill_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, EntityManagerInterface $entityManager, Skill $skill, SkillRepository $skillRepository): Response
@@ -79,7 +79,7 @@ class SkillController extends AbstractController
             'skills' => $this->getUser()->getSkills(),
         ]);
     }
-        /**
+    /**
      * @Route("/skills/{id}", name="skill_delete", methods={"GET", "POST"})
      */
     public function delete(Request $request, Skill $skill, EntityManagerInterface $entityManager): Response

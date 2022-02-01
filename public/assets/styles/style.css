@@ -55,7 +55,7 @@ section{
     width: 100%;
 }
 .button-dashboard {
-    padding: 40px 30px;
+    height: 100%;
 }
 .button-dashboard:hover {
     transition: all 300ms ease-in-out;
@@ -110,7 +110,7 @@ section{
 /************ CV Page********/
 
 .background-cv{
-    width: 95%;
+    width: 80%;
     padding: 30px;
     margin: auto;
     background-color: white;
