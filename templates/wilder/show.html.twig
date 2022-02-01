@@ -2,61 +2,79 @@
 
 {% block body %}
 
-    <section class="background-cv mt-4">
+    <section class="background-cv mt-4 w-75">
 
         <div class="infos d-flex justify-content-between">
+            <div class="user-picture d-flex">
+                <img width="250px" src="/uploads/pictures/{{ wilder.pictureFilename ?? 'user.png' }}" alt="profile-picture">
+                <div class="cv-name-title mt-5">
+                    <h3 class="pink-color">{{ wilder.firstname }} <span class="text-uppercase">{{ wilder.lastname }}</span> </h3>
+                    <h4 class="blue-color"><i class="fas fa-code"></i> Dévelopeuse PHP/Symfony</h4>
+                </div>
+            </div>
+            <div class="group-infos">
+                <p><a class="" href="{{ wilder.email|mailTo }}"><i class="fas fa-envelope-open-text mx-2"></i>{{ wilder.email }}</a></p>
+                <p><i class="fas fa-phone-square-alt mx-2"></i> 06 05 04 03 01</p>
+                {% if wilder.portfolio %}
+                    <p><a target="_blank" href="{{ wilder.portfolio }}"><i class="fas fa-laptop mx-2"></i>Portfolio</a></p>
+                {% endif %}
+                <div class="social-buttons d-flex justify-content-around">
+                    {% if wilder.linkedin %}
+                        <p><a target="_blank" href="{{ wilder.linkedin }}"><i class="fab fa-linkedin mx-2"></i>Linkedin</a></p>
+                    {% endif %}
+                    {% if wilder.github %}
+                        <p><a target="_blank" href="{{ wilder.github  }}"><i class="fab fa-github mx-2"></i>Github</a></p>
+                    {% endif %}
+                    {% if wilder.twitter %}
+                        <p><a target="_blank" href="{{ wilder.twitter }}"><i class="fab fa-twitter-square mx-2"></i>Twitter</a></p>
+                    {% endif %}
 
-            <div class="user-picture">
-                <img width="150px" src="/uploads/pictures/{{ wilder.pictureFilename ?? '/assets/images/user.png'}}" alt="profile-picture">
-            </div>
-            <div>
-                <p>{{ wilder.linkedin }}</p>
-                <p>{{ wilder.github }}</p>
-                <p>{{ wilder.twitter }}</p>
-                <p>{{ wilder.portfolio }}</p>
-            </div>
-            <div>
-                <p>Prénom : {{ wilder.firstname }}</p>
-                <p>Nom : {{ wilder.lastname }}</p>
-                <p>Email : {{ wilder.email }}</p>
-                <p>Téléphone : {{ wilder.telephone }}</p>
-            </div>
+                </div>
 
+            </div>
         </div>
+    </section>
+    <section class="background-cv mt-4 w-75">
+        <div class="presentation-cv width-85 mx-auto">
+            <h3 class="pink-color text-center text-capitalize">à propos</h3>
+            <p class="add-new-line fst-italic mt-3">{{ wilder.presentation ?? 'Bonjour, je suis un Wilder motivé et compétent !' }}</p>
+        </div>
+    </section>
 
-        <hr>
-
-        <i><p>{{ wilder.presentation ?? 'Bonjour, je suis un Wilder motivé et compétent !' }}</p></i>
-
-        <hr>
-
+    <section class="background-cv mt-4 w-75">
         <div class="skills">
-            <h1 class="h3 text-center">Compétences</h1>
+            <h3 class="text-center mb-5">Compétences</h3>
         </div>
-
-        <hr>
-
-        <div class="experiences">
-            <h1 class="h3 text-center">Expérience</h1>
-
+    </section>
+    <section class="background-cv mt-4 w-75">
+        <div class="experiences px-5">
+            <h3 class="text-center mb-4 pink-color">Expériences</h3>
+            <div class="ex-cv">
                 {% for experience in wilder.experiences %}
-
-                    <b><p>{{ experience.year }}</p></b>
-                    <p>{{ experience.title }}</p>
-                    <p>{{ experience.company }}</p>
-                    <p>{{ experience.city }}</p>
-
+                    <div class="row d-flex">
+                        <div class="col-md-4 year-ex">
+                            <p class="fw-bold mt-1 badge bg-blue"><i class="far fa-calendar-check"></i> {{ experience.year }}</p>
+                        </div>
+                        <div class="col-md-8 detail-ex">
+                            <p class="fw-bold ex-title-cv gray-color"><i class="fas fa-angle-double-left blue-color"></i>{{ experience.title }}<i class="fas fa-angle-double-right blue-color"></i></p>
+                            <p><span class="fst-italic">{{ experience.company }} </span>,{{ experience.city }}</p>
+                            {% if experience.description %}
+                            <p class="add-new-line">{{ experience.description }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
                 {% endfor %}
+            </div>
         </div>
+    </section>
 
-        <hr>
-
+    <section class="background-cv mt-4 w-75">
         <div class="education text-center">
             <h1 class="h3">Formation</h1>
         </div>
+    </section>
 
-        <hr>
-
+    <section class="background-cv mt-4 w-75">
         <div class="projects text-center">
             <h1 class="h3">Mes Projets</h1>
         </div>
