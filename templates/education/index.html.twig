@@ -16,14 +16,14 @@
                     {{ message }}
                 </div>
             {% endfor %}
-            <table class="table table-hover table-bordered">
+            <table class="table">
                 <thead>
                 <tr>
-                    <th class="align-middle" scope="col" style="width: 18%">Année</th>
-                    <th class="align-middle" scope="col" style="width: 15%">Titre</th>
-                    <th class="align-middle" scope="col" style="width: 14%">Ecole</th>
-                    <th class="align-middle" scope="col" style="width: 10%">Ville</th>
-                    <th class="align-middle" scope="col" style="width: 13%">Description</th>
+                    <th class="align-middle" scope="col" style="width: auto">Année</th>
+                    <th class="align-middle" scope="col" style="width: auto">Titre</th>
+                    <th class="align-middle" scope="col" style="width: auto">Ecole</th>
+                    <th class="align-middle" scope="col" style="width: auto">Ville</th>
+                    <th class="align-middle" scope="col" style="width: 30%">Description</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -34,7 +34,7 @@
                         <td class="align-middle">{{ education.school }}</td>
                         <td class="align-middle">{{ education.city }}</td>
                         <td class="align-middle">{{ education.Description }}</td>
-                        <td class="align-middle"><a style="float: left" class="btn btn-primary px-3 mx-3" href="{{ path("education_edit", {id: education.id}) }}"><i class="fas fa-edit"></i></a>
+                        <td class="align-middle"><a class="btn btn-primary px-3 mx-3 justify-content-end" href="{{ path("education_edit", {id: education.id}) }}"><i class="fas fa-edit"></i></a>
                             {{ include('education/_form_delete.html.twig') }}
                         </td>
                     </tr>

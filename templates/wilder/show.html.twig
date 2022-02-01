@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <section class="background-cv mt-4">
+
+        <div class="infos d-flex justify-content-between">
+
+            <div class="user-picture">
+                <img width="150px" src="/uploads/pictures/{{ wilder.pictureFilename ?? '/assets/images/user.png'}}" alt="profile-picture">
+            </div>
+            <div>
+                <p>{{ wilder.linkedin }}</p>
+                <p>{{ wilder.github }}</p>
+                <p>{{ wilder.twitter }}</p>
+                <p>{{ wilder.portfolio }}</p>
+            </div>
+            <div>
+                <p>Prénom : {{ wilder.firstname }}</p>
+                <p>Nom : {{ wilder.lastname }}</p>
+                <p>Email : {{ wilder.email }}</p>
+                <p>Téléphone : {{ wilder.telephone }}</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <i><p>{{ wilder.presentation ?? 'Bonjour, je suis un Wilder motivé et compétent !' }}</p></i>
+
+        <hr>
+
+        <div class="skills">
+            <h1 class="h3 text-center">Compétences</h1>
+        </div>
+
+        <hr>
+
+        <div class="experiences">
+            <h1 class="h3 text-center">Expérience</h1>
+
+                {% for experience in wilder.experiences %}
+
+                    <b><p>{{ experience.year }}</p></b>
+                    <p>{{ experience.title }}</p>
+                    <p>{{ experience.company }}</p>
+                    <p>{{ experience.city }}</p>
+
+                {% endfor %}
+        </div>
+
+        <hr>
+
+        <div class="education text-center">
+            <h1 class="h3">Formation</h1>
+        </div>
+
+        <hr>
+
+        <div class="projects text-center">
+            <h1 class="h3">Mes Projets</h1>
+        </div>
+
+    </section>
+
+{% endblock %}

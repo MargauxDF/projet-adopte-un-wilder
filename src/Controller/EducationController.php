@@ -86,7 +86,6 @@ class EducationController extends AbstractController
      */
     public function delete(Request $request, Education $education, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $education->getId(), (string) $request->request->get('token'))) {
             $entityManager->remove($education);
             $entityManager->flush();
 
@@ -94,7 +93,7 @@ class EducationController extends AbstractController
                 'delete-success',
                 'Votre formation a été supprimé'
             );
-        }
+
 
         return $this->redirectToRoute('education_index');
     }
