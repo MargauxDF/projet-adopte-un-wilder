@@ -6,6 +6,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
+
         "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
@@ -61,7 +62,7 @@
         "symfony/browser-kit": "^5.2",
         "symfony/css-selector": "^5.2",
         "symfony/debug-bundle": "^5.2",
-        "symfony/maker-bundle": "^1.0",
+        "symfony/maker-bundle": "^1.36",
         "symfony/phpunit-bridge": "^5.2",
         "symfony/stopwatch": "^5.2",
         "symfony/var-dumper": "^5.2",
@@ -72,7 +73,13 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "symfony/flex": true,
+            "phpro/grumphp": true,
+            "symfony/runtime": true
+        }
     },
     "autoload": {
         "psr-4": {
