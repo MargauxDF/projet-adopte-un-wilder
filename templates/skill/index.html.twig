@@ -3,7 +3,7 @@
 {% block body %}
 <div class="container my-5">
         <div class="table-compétences">
-            <h2 class="text-center mb-4">Vos Compétences</h2>
+            <h2 class="text-center mb-4">Mes Compétences</h2>
             {% for message in app.flashes('success') %}
                 <div class="alert alert-success">
                     {{ message }}
@@ -43,7 +43,6 @@
                 {{ form_end(form) }}
             </div>
 
-        </div>
-
+</div>
 {% endblock %}
 

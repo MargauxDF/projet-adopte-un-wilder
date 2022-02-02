@@ -19,35 +19,50 @@ class EducationType extends AbstractType
                 'year',
                 TextType::class,
                 [
-                'label' => 'Année',
+                    'label' => 'Année :',
+                    'attr' => [
+                        'placeholder' => 'ex : Septembre 2019 - Juin 2020',
+                    ]
                 ]
             )
             ->add(
                 'title',
                 TextType::class,
                 [
-                'label' => 'Titre',
+                    'label' => 'Titre :',
+                    'attr' => [
+                        'placeholder' => 'ex : Développeur web et mobile',
+                    ]
                 ]
             )
             ->add(
                 'school',
                 TextType::class,
                 [
-                'label' => 'Nom de l\'école',
+                    'label' => 'Nom de l\'école :',
+                    'attr' => [
+                        'placeholder' =>  'ex : Wild Code School',
+                    ]
                 ]
             )
             ->add(
                 'city',
                 TextType::class,
                 [
-                'label' => 'Ville',
+                    'label' => 'Ville :',
+                    'attr' => [
+                        'placeholder' => 'ex : Lyon',
+                    ]
                 ]
             )
             ->add(
                 'description',
                 TextareaType::class,
                 [
-                'label' => 'Description',
+                    'label' => 'Description :',
+                    'attr' => [
+                        'placeholder' => 'Détaillez ici le contenu de votre formation',
+                    ]
                 ]
             )
         ;

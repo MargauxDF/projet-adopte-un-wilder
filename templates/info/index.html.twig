@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Vos infos{% endblock %}
+{% block title %}Mes infos{% endblock %}
 
 {% block body %}
 
@@ -73,7 +73,7 @@
                 </tbody>
             </table>
         </div>
-        <hr>
+        {% if (app.request.get('_route') == 'info_edit') %}
         <div class="form-experience w-75 mx-auto">
             <h2 class="text-center mt-5">Mettre à jour mes infos</h2>
             {{ form_start(form) }}
@@ -82,7 +82,6 @@
             <button class="btn btn-primary" type="submit">Sauvegarder</button>
             {{ form_end(form) }}
         </div>
+        {% endif %}
     </div>
-
-
 {% endblock %}

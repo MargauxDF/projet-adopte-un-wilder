@@ -56,7 +56,7 @@ class EducationController extends AbstractController
     }
 
     /**
-     * @Route("/formations/{id}/edit", name="education_edit", methods={"GET", "POST"})
+     * @Route("/formation/{id}/edit", name="education_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, EntityManagerInterface $entityManager, Education $education, EducationRepository $educationRepository): Response
     {
@@ -82,7 +82,7 @@ class EducationController extends AbstractController
     }
 
     /**
-     * @Route("/formations/{id}", name="education_delete", methods={"GET", "POST"})
+     * @Route("/formation/{id}", name="education_delete", methods={"GET", "POST"})
      */
     public function delete(Request $request, Education $education, EntityManagerInterface $entityManager): Response
     {
