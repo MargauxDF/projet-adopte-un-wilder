@@ -15,31 +15,31 @@ class ExperienceType extends AbstractType
     {
         $builder
             ->add('year', TextType::class, [
-                'label' => 'Année : ',
+                'label' => 'Année ',
                 'attr' => [
                     'placeholder' => 'Janvier 2015 - Mars 2020',
                 ],
             ])
             ->add('title', TextType::class, [
-                'label' => 'Poste : ',
+                'label' => 'Poste ',
                 'attr' => [
                     'placeholder' => 'Développeur PHP/Symfony',
                 ],
             ])
             ->add('company', TextType::class, [
-                'label' => 'Entreprise : ',
+                'label' => 'Entreprise ',
                 'attr' => [
                     'placeholder' => 'Orange',
                 ],
             ])
             ->add('city', TextType::class, [
-                'label' => 'Ville : ',
+                'label' => 'Ville ',
                 'attr' => [
                     'placeholder' => 'Lyon',
                 ],
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Description : ',
+                'label' => 'Description ',
                 'attr' => [
                     'placeholder' => '',
                 ],
