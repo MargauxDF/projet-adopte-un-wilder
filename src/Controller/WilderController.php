@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\LabelCv;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,8 +15,11 @@ class WilderController extends AbstractController
      */
     public function index(UserRepository $userRepository): Response
     {
+         $wildersPhp = $userRepository->findBy(['labelCv' => 1]);
+
         return $this->render('wilder/index.html.twig', [
             'wilders' => $userRepository->findAll(),
+            'wildersPhp' => $wildersPhp,
         ]);
     }
 
