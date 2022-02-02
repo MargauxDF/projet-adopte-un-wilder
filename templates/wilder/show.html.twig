@@ -9,7 +9,7 @@
 
         <div class="infos d-flex justify-content-between">
             <div class="user-picture d-flex">
-                <img src="/uploads/pictures/{{ wilder.pictureFilename ?? 'user.png' }}" alt="profile-picture">
+                <img src="/uploads/pictures/{{ wilder.pictureFilename ?? 'user.png' }}" alt="profile-picture" class="profile-pic">
                 <div class="cv-name-title mt-5">
                     <h3 class="pink-color">{{ wilder.firstname }} <span class="text-uppercase">{{ wilder.lastname }}</span> </h3>
                     <h4 class="blue-color"><i class="fas fa-code"></i> {{ wilder.labelCv.title }}</h4>
@@ -38,7 +38,7 @@
         </div>
     </section>
 
-    <section class="background-cv mt-4 w-75" id="about">
+    <section class="background-cv mt-4 w-75 d-print-none" id="about">
         <div class="presentation-cv width-85 mx-auto">
             <h3 class="pink-color text-center text-capitalize">A propos</h3>
             <p class="add-new-line fst-italic mt-3">{{ wilder.presentation ?? 'Bonjour, je suis un Wilder motivé et compétent !' }}</p>
@@ -100,7 +100,7 @@
         </div>
     </section>
 
-    <section class="background-cv mt-4 w-75" id="projects">
+    <section class="background-cv mt-4 w-75 d-print-none" id="projects">
         <div class="projects text-center">
             <h1 class="h3">Mes Projets</h1>
         </div>

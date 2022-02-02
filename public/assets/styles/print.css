@@ -1,10 +1,23 @@
-#cv {
+body{
     padding-top: 0;
     padding-bottom: 0;
     width: 100%;
 }
 
+section{
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+}
+
+#cv {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    width: 100% !important;
+}
 
 .profile-pic {
-    width: 80px;
+    width: 80px !important;
+    height: 80px !important;
+    margin: auto !important;
 }
