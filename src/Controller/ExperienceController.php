@@ -18,15 +18,18 @@ use Symfony\Component\HttpFoundation\Request;
 class ExperienceController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/experiences", name="experience_index")
      */
-    public function index(): Response
+    public function index(ExperienceRepository  $experienceRepository ): Response
     {
-        return $this->render('account/index.html.twig');
+        //$experience = $experienceRepository->getUser()->getExperience();
+        return $this->render('experience/index.html.twig', [
+            'experiences' => $this->getUser()->getExperiences()
+        ]);
     }
 
     /**
-     * @Route("/experiences", name="experiences_index", methods={"GET", "POST"})
+     * @Route("/experiences/add", name="experience_add", methods={"GET", "POST"})
      */
     public function addExperience(Request $request, EntityManagerInterface $entityManager, ExperienceRepository $experienceRepository): Response
     {
@@ -47,10 +50,10 @@ class ExperienceController extends AbstractController
                 'Votre expérience a été ajoutée!'
             );
 
-            return $this->redirectToRoute('experiences_index');
+            return $this->redirectToRoute('experience_index');
         }
 
-        return $this->render('experience/index.html.twig', [
+        return $this->render('experience/add.html.twig', [
             'form' => $form->createView(),
             'experiences' => $this->getUser()->getExperiences(),
         ]);
@@ -72,10 +75,10 @@ class ExperienceController extends AbstractController
                 'Votre expérience a été mise à jour avec succès !'
             );
 
-            return $this->redirectToRoute('experiences_index');
+            return $this->redirectToRoute('experience_index');
         }
 
-        return $this->render('experience/index.html.twig', [
+        return $this->render('experience/edit.html.twig', [
             'experience' => $experience,
             'form' => $form->createView(),
             'experiences' => $this->getUser()->getExperiences(),
@@ -97,6 +100,6 @@ class ExperienceController extends AbstractController
             );
         }
 
-        return $this->redirectToRoute('experiences_index');
+        return $this->redirectToRoute('experience_index');
     }
 }
