@@ -34,7 +34,7 @@
                         <td class="align-middle">{{ education.school }}</td>
                         <td class="align-middle">{{ education.city }}</td>
                         <td class="align-middle">{{ education.Description }}</td>
-                        <td class="align-middle" style="width: 15%"><a class="btn btn-primary px-3 mx-3" onclick="openForm('education-form')" href="{{ path("education_edit", {id: education.id}) }}"><i class="fas fa-edit"></i></a>
+                        <td class="align-middle" style="width: 15%"><a class="btn btn-primary px-3 mx-3" href="{{ path("education_edit", {id: education.id}) }}"><i class="fas fa-edit"></i></a>
                             {{ include('education/_form_delete.html.twig') }}
                         </td>
                     </tr>
@@ -43,22 +43,12 @@
             </table>
         </div>
         <hr>
-        <div class="w-75 mx-auto" id="education-form" style="display: none">
-            <h2 class="text-center mt-5">Ajouter des formations</h2>
+        <div class="w-75 mx-auto" id="education-form">
+            <h2 class="text-center mt-5">Ajouter une formation</h2>
             {{ form_start(form) }}
             {{ form_widget(form) }}
             <button class="btn btn-primary" type="submit">Sauvegarder</button>
             {{ form_end(form) }}
         </div>
     </div>
-
-    <script>
-        function openForm(element) {
-            const srcElement = document.getElementById(element);
-            if (srcElement.style.display === 'none') {
-                srcElement.style.display = 'block';
-            }
-        }
-    </script>
-
 {% endblock %}

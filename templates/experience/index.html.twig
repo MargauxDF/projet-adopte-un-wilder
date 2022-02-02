@@ -16,6 +16,7 @@
                     {{ message }}
                 </div>
             {% endfor %}
+            <a href="{{ path('experience_add') }}" class="btn btn-primary">Ajouter une expérience</a>
                 <table class="table">
                     <thead>
                     <tr>
@@ -41,14 +42,6 @@
                     {% endfor %}
                     </tbody>
                 </table>
-        </div>
-        <hr class="my-4">
-        <div class="form-experience w-75 mx-auto">
-            <h2 class="text-center mt-5">Ajouter Une Expérience</h2>
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <button class="btn btn-primary" type="submit">Sauvegarder</button>
-            {{ form_end(form) }}
         </div>
     </div>
 
