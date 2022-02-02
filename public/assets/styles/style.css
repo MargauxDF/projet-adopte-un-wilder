@@ -8,10 +8,7 @@ section{
     padding: 20px;
 }
 
-/* rose utilisé dans la navbar:#eb6864 */
-
 /*********** Navbar ***********/
-
 #logo-navbar {
     width: 55px;
     transition:all 1s;

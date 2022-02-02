@@ -17,15 +17,15 @@
             <img src="/assets/images/adopte-un-wilder-logo-blanc-removebg-preview.png" alt="logo-adopte-un-wilder-blanc">
             <h5 class="fw-light text-white m-0 mt-4">— Je suis —</h5>
 
-            <div class="d-flex flex-column justify-content-center ju">
-                <div class="btn-group mt-4">
+            <div class="d-flex">
+                <div class="btn-toolbar mt-4 mx-5">
                     {% if app.user %}
                         <a href="{{ path('account') }}" class="btn btn-outline-light" aria-current="page">Un wilder</a>
                     {% else %}
                         <a href="{{ path('login') }}" class="btn btn-outline-light" aria-current="page">Un wilder</a>
                     {% endif %}
                 </div>
-            <div class="btn-group mt-4">
+            <div class="btn-toolbar mt-4 mx-5">
                 <a href="{{ path('wilder_index') }}" class="btn btn-outline-light">Un visiteur</a>
             </div>
         </div>
