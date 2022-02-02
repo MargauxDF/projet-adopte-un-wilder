@@ -15,7 +15,6 @@
                     <div class="row d-flex">
                         <p class="card-text title-name-card blue-color">{{ wilder.lastname }} {{ wilder.firstname }}</p>
                     </div>
-                    
                     <a class="click-send-email" href="{{ wilder.email|mailTo }}"><i class="fas fa-paper-plane me-2"></i>{{ wilder.email }}</a>
                     <div class="d-flex justify-content-center align-items-center my-2">
                         <a href="{{ path("wilder_show", {slug: wilder.slug}) }}" class="btn btn-primary btn-sm px-4 py-2">Voir CV {{ wilder.firstname }}</a>

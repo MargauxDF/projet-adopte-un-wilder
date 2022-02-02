@@ -136,26 +136,33 @@ section{
 }
 .group-infos {
     margin: 20px;
-    padding: 20px;
-    width: 330px;
-    min-height: 200px;
+    padding: 8px;
+    width: 300px;
+    min-height: 150px;
     display: grid;
-    border-radius: 10px;
+    border-radius: 3px;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
     background-color: #aaa;
-    font-size: 18px;
+    font-size: 15px;
 }
+
 .group-infos p, .group-infos a {
     color: white;
 }
 .group-infos a {
     text-decoration: none;
 }
+
+.card-content {
+    padding: 20px;
+    border: 1px dashed #fff;
+}
+
 .width-85 {
     width: 85%;
 }
 .blue-color {
-    color: #336699;
+    color: #8AD13E;
 }
 .ex-title-cv {
     font-size: 20px;
@@ -164,7 +171,7 @@ section{
     color: #404040;
 }
 .bg-blue {
-    background-color: #336699;
+    background-color: #8AD13E;
 }
 .user-picture img {
     border-radius: 50%;

@@ -14,34 +14,33 @@
                     <h3 class="pink-color">{{ wilder.firstname }} <span class="text-uppercase">{{ wilder.lastname }}</span> </h3>
                     <h4 class="blue-color"><i class="fas fa-code"></i> {{ wilder.labelCv.title }}</h4>
                 </div>
-
             </div>
             <div class="group-infos">
-                <p><a class="" href="{{ wilder.email|mailTo }}"><i class="fas fa-envelope-open-text mx-2"></i>{{ wilder.email }}</a></p>
-                <p><i class="fas fa-phone-square-alt mx-2"></i>{{ wilder.telephone }}</p>
-                {% if wilder.portfolio %}
-                    <p><a target="_blank" href="{{ wilder.portfolio }}"><i class="fas fa-laptop mx-2"></i>Portfolio</a></p>
-                {% endif %}
-                <div class="social-buttons d-flex justify-content-around">
-                    {% if wilder.linkedin %}
-                        <p><a target="_blank" href="{{ wilder.linkedin }}"><i class="fab fa-linkedin mx-2"></i>Linkedin</a></p>
+                <div class="card-content">
+                    <p><a class="" href="{{ wilder.email|mailTo }}"><i class="fas fa-envelope-open-text mx-2"></i>{{ wilder.email }}</a></p>
+                    <p><i class="fas fa-phone-square-alt mx-2"></i>{{ wilder.telephone }}</p>
+                    {% if wilder.portfolio %}
+                        <p><a target="_blank" href="{{ wilder.portfolio }}"><i class="fas fa-laptop mx-2"></i>Portfolio</a></p>
                     {% endif %}
-                    {% if wilder.github %}
-                        <p><a target="_blank" href="{{ wilder.github  }}"><i class="fab fa-github mx-2"></i>Github</a></p>
-                    {% endif %}
-                    {% if wilder.twitter %}
-                        <p><a target="_blank" href="{{ wilder.twitter }}"><i class="fab fa-twitter-square mx-2"></i>Twitter</a></p>
-                    {% endif %}
-
+                    <div class="social-buttons d-flex justify-content-around">
+                        {% if wilder.linkedin %}
+                            <p><a target="_blank" href="{{ wilder.linkedin }}"><i class="fab fa-linkedin mx-2"></i>Linkedin</a></p>
+                        {% endif %}
+                        {% if wilder.github %}
+                            <p><a target="_blank" href="{{ wilder.github  }}"><i class="fab fa-github mx-2"></i>Github</a></p>
+                        {% endif %}
+                        {% if wilder.twitter %}
+                            <p><a target="_blank" href="{{ wilder.twitter }}"><i class="fab fa-twitter-square mx-2"></i>Twitter</a></p>
+                        {% endif %}
+                    </div>
                 </div>
-
             </div>
         </div>
     </section>
 
     <section class="background-cv mt-4 w-75" id="about">
         <div class="presentation-cv width-85 mx-auto">
-            <h3 class="pink-color text-center text-capitalize">à propos</h3>
+            <h3 class="pink-color text-center text-capitalize">A propos</h3>
             <p class="add-new-line fst-italic mt-3">{{ wilder.presentation ?? 'Bonjour, je suis un Wilder motivé et compétent !' }}</p>
         </div>
     </section>
@@ -67,8 +66,8 @@
                             <p class="fw-bold mt-1 badge bg-blue"><i class="far fa-calendar-check"></i> {{ experience.year }}</p>
                         </div>
                         <div class="col-md-8 detail-ex">
-                            <p class="fw-bold ex-title-cv gray-color"><i class="fas fa-angle-double-left blue-color"></i>{{ experience.title }}<i class="fas fa-angle-double-right blue-color"></i></p>
-                            <p><span class="fst-italic">{{ experience.company }} </span>,{{ experience.city }}</p>
+                            <p class="fw-bold ex-title-cv gray-color"><i class="fas fa-angle-double-left blue-color"></i> {{ experience.title }} <i class="fas fa-angle-double-right blue-color"></i></p>
+                            <p><span class="">{{ experience.company }}</span>, {{ experience.city }}</p>
                             {% if experience.description %}
                             <p class="add-new-line">{{ experience.description }}</p>
                             {% endif %}
