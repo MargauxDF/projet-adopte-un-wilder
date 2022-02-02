@@ -16,7 +16,7 @@
                     {{ message }}
                 </div>
             {% endfor %}
-                <table class="table table-hover table-bordered">
+                <table class="table">
                     <thead>
                     <tr>
                         <th class="align-middle" scope="col" style="width: 18%">Année</th>
@@ -24,7 +24,6 @@
                         <th class="align-middle" scope="col">Description</th>
                         <th class="align-middle" scope="col" style="width: 14%">Entreprise</th>
                         <th class="align-middle" scope="col" style="width: 10%">Ville</th>
-                        <th class="align-middle" scope="col" style="width: 13%">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,7 +34,7 @@
                         <td class="align-middle">{{ experience.description }}</td>
                         <td class="align-middle">{{ experience.company }}</td>
                         <td class="align-middle">{{ experience.city }}</td>
-                        <td class="align-middle d-flex"><a class="btn btn-primary px-3 mx-3" href="{{ path("experience_edit", {id: experience.id}) }}"><i class="far fa-edit"></i></a>
+                        <td class="align-middle" style="width: 13%"><a class="btn btn-primary px-3 mx-3" href="{{ path("experience_edit", {id: experience.id}) }}"><i class="far fa-edit"></i></a>
                             {{ include('experience/_form_delete.html.twig') }}
                         </td>
                     </tr>
@@ -48,9 +47,7 @@
             <h2 class="text-center mt-5">Ajouter Une Expérience</h2>
             {{ form_start(form) }}
             {{ form_widget(form) }}
-            <div class="button-form">
-                <button class="btn btn-primary btn-lg w-50" type="submit">Sauvegarder</button>
-            </div>
+            <button class="btn btn-primary" type="submit">Sauvegarder</button>
             {{ form_end(form) }}
         </div>
     </div>
