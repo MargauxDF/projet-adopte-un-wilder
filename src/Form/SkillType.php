@@ -17,6 +17,7 @@ class SkillType extends AbstractType
     {
         $builder
             ->add('url', ChoiceType::class, [
+                'label' => 'Compétence ',
                 'choices' => [
                     'PHP' => 'https://cdn-icons-png.flaticon.com/512/919/919830.png',
                     'HTML' => 'https://cdn-icons-png.flaticon.com/512/919/919827.png',
