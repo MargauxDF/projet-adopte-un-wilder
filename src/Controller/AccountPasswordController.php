@@ -29,20 +29,25 @@ class AccountPasswordController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->issubmitted() && $form->isValid()) {
-            $old_pswd = $form->get('old_password')->getData();
-            //dd($old_pswd);
+            $oldPswd = $form->get('old_password')->getData();
+
             //Méthode comparant le mot de passe saisi avec le mot de passe en db
-            if ($encoder->isPasswordValid($user, $old_pswd)) {
+            if ($encoder->isPasswordValid($user, $oldPswd)) {
                 //récupération et encodage du nouveau mot de passe
-                $new_pswd = $form->get('new_password')->getData();
-                $password = $encoder->hashPassword($user, $new_pswd);
+                $newPswd = $form->get('new_password')->getData();
+                $password = $encoder->hashPassword($user, $newPswd);
 
                 $user->setPassword($password);
 
                 //$this->entityManager->persist($user); nécessaire seulement à la création et non à la mise à jour
                 $entityManager->flush();
 
-                $notification = "Votre mot de passe a été modifié avec succès !";
+                $this->addFlash(
+                    'success',
+                    "{$user->getFirstname()}, Votre mot de passe a été modifié avec succès !"
+                );
+                return $this->redirectToRoute("account");
+
             } else {
                 $notification = "Votre mot de passe actuel n'est pas le bon !";
             }

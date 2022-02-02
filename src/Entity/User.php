@@ -322,11 +322,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|Experience[]
+     * @return Experience[]
      */
-    public function getExperiences(): Collection
+    public function getExperiences(): array
     {
-        return $this->experiences;
+        return $this->experiences->toArray();
     }
 
     public function addExperience(Experience $experience): self
