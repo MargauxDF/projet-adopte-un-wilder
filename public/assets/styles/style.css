@@ -90,9 +90,8 @@ a {
     background-color: #8AD13E !important;
 }
 /************Form**********/
-.button-form button {
-    display: block;
-    margin: auto;
+label.required:before {
+    content: "*";
 }
 
 /************All Wilders Page********/
@@ -187,9 +186,12 @@ a {
 .logo-skill-cv img {
     width: 100%;
 }
+.print-only {
+    display: none;
+}
 
 /************ about us page ********/
-.team4 h1, .team4 h2, .team4 h3, .team4 h4, .team4 h5, .team4 h6 {
+.team4 h1, .team4 h2, .team4 h3, .team4 h4, .team4 h5 {
     color: #eb6864;
 }
 
@@ -203,9 +205,8 @@ a {
 }
 
 .team4 .subtitle {
-    color: #8d97ad;
     line-height: 24px;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .team4 ul li a {
@@ -222,7 +223,9 @@ a {
     color: #316ce8;
 }
 
-label.required:before {
-    content: "*";
-
+.img-fluid {
+    max-width: 90% !important;
+    display: block;
+    margin: auto;
 }
+

@@ -1,4 +1,5 @@
 body{
+    -webkit-print-color-adjust: exact;
     padding-top: 0;
     padding-bottom: 0;
     width: 100%;
@@ -21,4 +22,49 @@ section{
     width: 90px !important;
     height: 90px !important;
     margin: auto !important;
+}
+.card-content {
+    padding: 0;
+    padding-top: 15px !important;
+}
+.group-infos {
+    min-height: auto;
+    height: auto;
+    min-width: 250px;
+    width: auto;
+    box-shadow: none;
+    color: #1a1a1a !important;
+    border: 1px #eb6864 !important;
+}
+.cv-name-title h4 {
+    font-size: 18px;
+}
+#skills h3 {
+    margin-bottom: 25px !important;
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+}
+.skill-cv img {
+    width: 35px;
+}
+.ex-title-cv {
+    font-size: 15px;
+}
+p {
+    margin-bottom: 10px !important;
+}
+.experiences {
+    padding: 0 !important;
+}
+.bg-blue {
+    background-color: #8AD13E; !important;
+}
+#cv .infos {
+    justify-content: space-around !important;
+}
+.print-only {
+    display: block;
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
 }

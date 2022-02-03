@@ -24,7 +24,7 @@
                     {% if wilder.portfolio %}
                         <p><a target="_blank" href="{{ wilder.portfolio }}"><i class="fas fa-laptop mx-2"></i>Portfolio</a></p>
                     {% endif %}
-                    <div class="social-buttons d-flex justify-content-around">
+                    <div class="social-buttons d-flex justify-content-around d-print-none">
                         {% if wilder.linkedin %}
                             <p><a target="_blank" href="{{ wilder.linkedin }}"><i class="fab fa-linkedin mx-2"></i>Linkedin</a></p>
                         {% endif %}
@@ -58,16 +58,17 @@
             </div>
         </div>
     </section>
+    <hr class="print-only">
     <section class="background-cv mt-4 w-75" id="experience">
         <div class="experiences px-5">
             <h3 class="text-center mb-4 pink-color">Expérience</h3>
             <div class="ex-cv">
                 {% for experience in wilder.experiences %}
-                    <div class="row d-flex">
-                        <div class="col-md-4 year-ex">
+                    <div class="row">
+                        <div class="col-sm-4 year-ex">
                             <p class="fw-bold mt-1 badge bg-blue"><i class="far fa-calendar-check"></i> {{ experience.year }}</p>
                         </div>
-                        <div class="col-md-8 detail-ex">
+                        <div class="col-sm-8 detail-ex">
                             <p class="fw-bold ex-title-cv gray-color"><i class="fas fa-angle-double-left blue-color"></i> {{ experience.title }} <i class="fas fa-angle-double-right blue-color"></i></p>
                             <p><span class="">{{ experience.company }}</span>, {{ experience.city }}</p>
                             {% if experience.description %}
@@ -79,17 +80,17 @@
             </div>
         </div>
     </section>
-
+    <hr class="print-only">
     <section class="background-cv mt-4 w-75" id="formation">
         <div class="education px-5">
             <h3 class="text-center pink-color mb-4">Formation</h3>
             <div class="school-cv">
                 {% for education in wilder.educations %}
-                    <div class="row d-flex">
-                        <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-sm-4">
                             <p class="fw-bold mt-1 badge bg-blue"><i class="far fa-calendar-check"></i> {{ education.year }}</p>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-sm-8">
                             <p class="fw-bold ex-title-cv gray-color"><i class="fas fa-angle-double-left blue-color"></i>{{ education.title }}<i class="fas fa-angle-double-right blue-color"></i></p>
                             <p><span class="fst-italic">{{ education.school }} </span>,{{ education.city }}</p>
                             {% if education.description %}
@@ -104,7 +105,7 @@
 
     <section class="background-cv mt-4 w-75 d-print-none" id="projects">
         <div class="projects text-center">
-            <h1 class="h3">Mes Projets</h1>
+            <h3 class="pink-color">Mes Projets</h3>
         </div>
 
     </section>
