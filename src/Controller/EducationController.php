@@ -17,15 +17,17 @@ use Symfony\Component\HttpFoundation\Request;
 class EducationController extends AbstractController
 {
     /**
-     * @Route("/", name = "index")]
+     * @Route("/formations", name = "education_index")]
      */
-    public function index(): Response
+    public function index(EducationRepository $educationRepository): Response
     {
-        return $this->render('account/index.html.twig');
+        return $this->render('education/index.html.twig', [
+            'educations' => $this->getUser()->getEducations(),
+        ]);
     }
 
     /**
-     * @Route("/formations", name="education_index", methods={"GET", "POST"})
+     * @Route("/formations/add", name="education_add", methods={"GET", "POST"})
      */
     public function addEducation(Request $request, EntityManagerInterface $entityManager, EducationRepository $educationRepository): Response
     {
@@ -43,13 +45,13 @@ class EducationController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre formation a été ajouté !'
+                'Votre formation a été ajouté avec succès!'
             );
 
             return $this->redirectToRoute('education_index');
         }
 
-        return $this->render('education/index.html.twig', [
+        return $this->render('education/add.html.twig', [
            'form' => $form->createView(),
            'educations' => $this->getUser()->getEducations(),
         ]);
@@ -68,13 +70,13 @@ class EducationController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre formation a été mise à jour !'
+                'Votre formation a été mise à jour avec succès !'
             );
 
             return $this->redirectToRoute('education_index');
         }
 
-        return $this->render('education/index.html.twig', [
+        return $this->render('education/edit.html.twig', [
             'education' => $education,
             'form' => $form->createView(),
             'educations' => $this->getUser()->getEducations(),

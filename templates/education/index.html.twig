@@ -16,6 +16,7 @@
                     {{ message }}
                 </div>
             {% endfor %}
+            <a href="{{ path('education_add') }}" class="btn btn-primary">Ajouter une formation</a>
             <table class="table">
                 <thead>
                 <tr>
@@ -42,14 +43,6 @@
                 </tbody>
             </table>
         </div>
-
-        <div class="form-education w-75 mx-auto">
-            <h2 class="text-center mt-5">Ajouter une formation</h2>
-
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <button class="btn btn-primary" type="submit">Sauvegarder</button>
-            {{ form_end(form) }}
-        </div>
     </div>
+
 {% endblock %}
