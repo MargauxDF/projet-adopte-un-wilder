@@ -27,7 +27,7 @@ class EducationController extends AbstractController
     }
 
     /**
-     * @Route("/formations/add", name="education_add", methods={"GET", "POST"})
+     * @Route("/formation/add", name="education_add", methods={"GET", "POST"})
      */
     public function addEducation(Request $request, EntityManagerInterface $entityManager, EducationRepository $educationRepository): Response
     {

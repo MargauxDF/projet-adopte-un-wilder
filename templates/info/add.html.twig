@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes infos{% endblock %}
+
+{% block body %}
+
+    <div class="form-experience w-75 mx-auto">
+        <h2 class="text-center mt-5">Compléter mon profil</h2>
+        {{ form_start(form) }}
+        {{ form_row(form.picture) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-primary" type="submit">Sauvegarder</button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
