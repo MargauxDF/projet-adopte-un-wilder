@@ -1,13 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-    <div class="form-experience w-75 mx-auto">
-        <h2 class="text-center mt-5">Modifier une Expérience</h2>
+    <div class="form-education w-75 mx-auto">
+        <h2 class="text-center mt-5">Modifier une formation</h2>
         {{ form_start(form) }}
         {{ form_widget(form) }}
         <button class="btn btn-primary" type="submit">Sauvegarder</button>
         {{ form_end(form) }}
     </div>
-
 {% endblock %}

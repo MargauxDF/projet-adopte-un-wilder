@@ -22,9 +22,8 @@ class ExperienceController extends AbstractController
      */
     public function index(ExperienceRepository $experienceRepository): Response
     {
-        //$experience = $experienceRepository->getUser()->getExperience();
         return $this->render('experience/index.html.twig', [
-            'experiences' => $this->getUser()->getExperiences()
+            'experiences' => $this->getUser()->getExperiences(),
         ]);
     }
 
@@ -36,9 +35,7 @@ class ExperienceController extends AbstractController
         $experience = new Experience();
 
         $form = $this->createForm(ExperienceType::class, $experience);
-
         $form->handleRequest($request);
-
         $experience->setUser($this->getUser());
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -47,7 +44,7 @@ class ExperienceController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre expérience a été ajoutée!'
+                'Votre expérience a été ajoutée avec succès !'
             );
 
             return $this->redirectToRoute('experience_index');

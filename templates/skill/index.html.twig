@@ -14,6 +14,10 @@
                     {{ message }}
                 </div>
             {% endfor %}
+            <div class="d-flex justify-content-between">
+                <a href="{{ path('account') }}"><i class="fas fa-backward"></i> Retour au Dashboard</a>
+                <a href="{{ path('skill_add') }}" class="btn btn-primary">Ajouter une compétence</a>
+            </div>
                  <table class="table">
                     <thead>
                     <tr>
@@ -32,16 +36,9 @@
                     </tr>
                     {% endfor %}
                     </tbody>
-                </table>
-            </div>
 
-        <div class="form-skill w-75 mx-auto">
-            <h2 class="text-center mt-5">Ajouter Vos Compétences</h2>
-                {{ form_start(form) }}
-                {{ form_widget(form) }}
-                <button class="btn btn-primary" type="submit">Sauvegarder</button>
-                {{ form_end(form) }}
-            </div>
+                 </table>
+        </div>
 
 </div>
 {% endblock %}
