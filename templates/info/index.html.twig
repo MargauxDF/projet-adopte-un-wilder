@@ -7,7 +7,10 @@
     <div class="container my-5">
         <div class="table-experience">
             <h2 class="text-center">Mes Infos</h2>
-            <a class="d-flex justify-content-end mb-5" href="{{ path("info_edit", {id: app.user.id}) }}">Mettre à jour mon profil &nbsp; <i class="fas fa-pen"></i></a>
+            <div class="d-flex justify-content-between mb-5">
+                <a href="{{ path('account') }}"><i class="fas fa-backward"></i> Retour au Dashboard</a>
+                <a href="{{ path("info_edit", {id: app.user.id}) }}">Mettre à jour mon profil &nbsp; <i class="fas fa-pen"></i></a>
+            </div>
             <table class="table">
                 <tbody>
                 {% if app.user %}
