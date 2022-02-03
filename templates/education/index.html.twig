@@ -16,7 +16,10 @@
                     {{ message }}
                 </div>
             {% endfor %}
-            <a href="{{ path('education_add') }}" class="btn btn-primary">Ajouter une formation</a>
+            <div class="d-flex justify-content-between">
+                <a href="{{ path('account') }}"><i class="fas fa-backward"></i> Retour au Dashboard</a>
+                <a href="{{ path('education_add') }}" class="btn btn-primary">Ajouter une formation</a>
+            </div>
             <table class="table">
                 <thead>
                 <tr>
@@ -44,5 +47,4 @@
             </table>
         </div>
     </div>
-
 {% endblock %}
