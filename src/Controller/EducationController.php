@@ -34,9 +34,7 @@ class EducationController extends AbstractController
         $education  = new Education();
 
         $form = $this->createForm(EducationType::class, $education);
-
         $form->handleRequest($request);
-
         $education->setUser($this->getUser());
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -45,7 +43,7 @@ class EducationController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre formation a été ajouté avec succès!'
+                'Votre formation a été ajoutée avec succès !'
             );
 
             return $this->redirectToRoute('education_index');
@@ -93,7 +91,7 @@ class EducationController extends AbstractController
 
             $this->addFlash(
                 'delete-success',
-                'Votre formation a été supprimé'
+                'Votre formation a été supprimée avec succès !'
             );
 
 
