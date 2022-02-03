@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" id="navbar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top d-print-none">
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><img id="logo-navbar" src="/assets/images/adopte-un-wilder-logo-blanc-removebg-preview.png" alt="logo-adopte-un-wilder-blanc"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,8 +18,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mon compte</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ path('cv_account') }}">Mon cv</a>
-                            <a class="dropdown-item" href="{{ path('account') }}">Mon profil</a>
+                            <a class="dropdown-item" href="{{ path('wilder_show', {slug: app.user.slug}) }}">Mon CV</a>
+                            <a class="dropdown-item" href="{{ path('account') }}">Dashboard</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ path('logout') }}">Deconnexion</a>
                         </div>

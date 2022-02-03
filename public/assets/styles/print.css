@@ -1,0 +1,24 @@
+body{
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+}
+
+section{
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+}
+
+#cv, #skills, #experience, #formation{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    width: 100% !important;
+    box-shadow: none;
+}
+
+.profile-pic {
+    width: 90px !important;
+    height: 90px !important;
+    margin: auto !important;
+}

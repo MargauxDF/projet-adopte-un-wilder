@@ -5,7 +5,6 @@
 {% block body %}
     <div class="container my-5">
         <div class="table-experience">
-            <h2 class="text-center mb-4">Mes Expériences</h2>
             {% for message in app.flashes('success') %}
                 <div class="alert alert-success">
                     {{ message }}
@@ -16,19 +15,21 @@
                     {{ message }}
                 </div>
             {% endfor %}
-            <div class="d-flex justify-content-between">
-                <a href="{{ path('account') }}"><i class="fas fa-backward"></i> Retour au Dashboard</a>
-                <a href="{{ path('experience_add') }}" class="btn btn-primary">Ajouter une expérience</a>
-            </div>
+
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('account') }}"><i class="fas fa-backward"></i> Retour au Dashboard</a>
+                    <a href="{{ path('experience_add') }}" class="btn btn-primary">Ajouter une expérience</a>
+                </div>
+
                 <table class="table">
                     <thead>
-                    <tr>
-                        <th class="align-middle" scope="col" style="width: 18%">Année</th>
-                        <th class="align-middle" scope="col" style="width: 15%">Poste</th>
-                        <th class="align-middle" scope="col">Description</th>
-                        <th class="align-middle" scope="col" style="width: 14%">Entreprise</th>
-                        <th class="align-middle" scope="col" style="width: 10%">Ville</th>
-                    </tr>
+                        <tr>
+                            <th class="align-middle" scope="col" style="width: 18%">Année</th>
+                            <th class="align-middle" scope="col" style="width: 15%">Poste</th>
+                            <th class="align-middle" scope="col">Description</th>
+                            <th class="align-middle" scope="col" style="width: 14%">Entreprise</th>
+                            <th class="align-middle" scope="col" style="width: 10%">Ville</th>
+                        </tr>
                     </thead>
                     <tbody>
                     {% for experience in experiences %}
@@ -38,7 +39,7 @@
                         <td class="align-middle add-new-line">{{ experience.description }}</td>
                         <td class="align-middle">{{ experience.company }}</td>
                         <td class="align-middle">{{ experience.city }}</td>
-                        <td class="align-middle" style="width: 13%"><a class="btn btn-primary px-3 mx-3" href="{{ path("experience_edit", {id: experience.id}) }}"><i class="far fa-edit"></i></a>
+                        <td class="align-middle" style="width: 20%"><a class="btn btn-primary px-3 mx-3" href="{{ path("experience_edit", {id: experience.id}) }}"><i class="far fa-edit"></i></a>
                             {{ include('experience/_form_delete.html.twig') }}
                         </td>
                     </tr>
