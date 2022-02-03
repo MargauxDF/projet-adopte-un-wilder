@@ -28,7 +28,7 @@ class ExperienceController extends AbstractController
     }
 
     /**
-     * @Route("/experiences/add", name="experience_add", methods={"GET", "POST"})
+     * @Route("/experience/add", name="experience_add", methods={"GET", "POST"})
      */
     public function addExperience(Request $request, EntityManagerInterface $entityManager, ExperienceRepository $experienceRepository): Response
     {
@@ -57,7 +57,7 @@ class ExperienceController extends AbstractController
     }
 
     /**
-     * @Route("/experiences/{id}/edit", name="experience_edit", methods={"GET", "POST"})
+     * @Route("/experience/{id}/edit", name="experience_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, EntityManagerInterface $entityManager, Experience $experience, ExperienceRepository $experienceRepository): Response
     {
@@ -83,7 +83,7 @@ class ExperienceController extends AbstractController
     }
 
     /**
-     * @Route("/experiences/{id}", name="experience_delete", methods={"GET", "POST"})
+     * @Route("/experience/{id}", name="experience_delete", methods={"GET", "POST"})
      */
     public function delete(Request $request, Experience $experience, EntityManagerInterface $entityManager): Response
     {

@@ -29,7 +29,7 @@ class SkillController extends AbstractController
     }
 
     /**
-     * @Route("/skills/add", name="skill_add", methods={"GET", "POST"})
+     * @Route("/skill/add", name="skill_add", methods={"GET", "POST"})
      */
     public function addSkills(Request $request, EntityManagerInterface $entityManager, SkillRepository $skillRepository): Response
     {
@@ -58,7 +58,7 @@ class SkillController extends AbstractController
         ]);
     }
     /**
-     * @Route("/skills/{id}/edit", name="skill_edit", methods={"GET", "POST"})
+     * @Route("/skill/{id}/edit", name="skill_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, EntityManagerInterface $entityManager, Skill $skill, SkillRepository $skillRepository): Response
     {
@@ -82,7 +82,7 @@ class SkillController extends AbstractController
         ]);
     }
     /**
-     * @Route("/skills/{id}", name="skill_delete", methods={"GET", "POST"})
+     * @Route("/skill/{id}", name="skill_delete", methods={"GET", "POST"})
      */
     public function delete(Request $request, Skill $skill, EntityManagerInterface $entityManager): Response
     {

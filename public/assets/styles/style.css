@@ -14,7 +14,7 @@ a {
 
 /*********** Navbar ***********/
 #logo-navbar {
-    width: 55px;
+    width: 30px !important;
     transition:all 1s;
 }
 
@@ -39,7 +39,7 @@ a {
 }
 
 #titre-site {
-    font-family: "Pacifico", cursive;
+    font-family: "Pacifico", cursive !important;
     color: floralwhite !important;
     font-size: xxx-large;
 }
@@ -220,3 +220,4 @@ label.required:before {
     content: "*";
 
 }
+
