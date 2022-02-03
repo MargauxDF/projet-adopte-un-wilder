@@ -4,12 +4,14 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegisterType;
+use App\Service\UserSlugger;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class RegisterController extends AbstractController
 {
@@ -23,7 +25,8 @@ class RegisterController extends AbstractController
     public function index(
         Request $request,
         EntityManagerInterface $entityManager,
-        UserPasswordHasherInterface $encoder
+        UserPasswordHasherInterface $encoder,
+        UserSlugger $slugger,
     ): Response {
         $user = new User();
 
@@ -31,6 +34,9 @@ class RegisterController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->issubmitted() && $form->isValid()) {
+            $slug = $slugger->findUniqueSlug($user);
+            $user->setSlug($slug);
+
             $password = $encoder->hashPassword($user, $user->getPassword());
             $user->setPassword($password);
 
