@@ -20,6 +20,7 @@ class UserListener
 
     public function slugifyName(User $user)
     {
+        return;
         $slug = $this->slugger->slug($user->getFirstname() . ' ' . $user->getLastname())->toString();
         $user->setSlug($slug);
     }
