@@ -24,7 +24,7 @@ class ExperienceController extends AbstractController
     {
         //$experience = $experienceRepository->getUser()->getExperience();
         return $this->render('experience/index.html.twig', [
-            'experiences' => $this->getUser()->getExperiences()
+            'experiences' => $this->getUser()->getExperiences(),
         ]);
     }
 
@@ -47,7 +47,7 @@ class ExperienceController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre expérience a été ajoutée!'
+                'Votre expérience a été ajoutée avec succès!'
             );
 
             return $this->redirectToRoute('experience_index');
