@@ -16,7 +16,10 @@
                     {{ message }}
                 </div>
             {% endfor %}
-            <a href="{{ path('experience_add') }}" class="btn btn-primary">Ajouter une expérience</a>
+            <div class="d-flex justify-content-between">
+                <a href="{{ path('account') }}"><i class="fas fa-backward"></i> Retour au Dashboard</a>
+                <a href="{{ path('experience_add') }}" class="btn btn-primary">Ajouter une expérience</a>
+            </div>
                 <table class="table">
                     <thead>
                     <tr>
