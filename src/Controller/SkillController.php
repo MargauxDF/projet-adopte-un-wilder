@@ -19,15 +19,17 @@ use App\Entity\User;
 class SkillController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/skills", name="skill_index")
      */
     public function index(): Response
     {
-        return $this->render('account/index.html.twig');
+        return $this->render('skill/index.html.twig', [
+            'skills' => $this->getUser()->getSkills(),
+        ]);
     }
 
     /**
-     * @Route("/skills", name="skills_index", methods={"GET", "POST"})
+     * @Route("/skills/add", name="skill_add", methods={"GET", "POST"})
      */
     public function addSkills(Request $request, EntityManagerInterface $entityManager, SkillRepository $skillRepository): Response
     {
@@ -44,13 +46,13 @@ class SkillController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre compétence a été ajoutée!'
+                'Votre compétence a été ajoutée avec succès !'
             );
 
-            return $this->redirectToRoute('skills_index');
+            return $this->redirectToRoute('skill_index');
         }
         // Render the form
-        return $this->render('skill/index.html.twig', [
+        return $this->render('skill/add.html.twig', [
         'form' => $form->createView(),
         'skills' => $this->getUser()->getSkills(),
         ]);
@@ -70,10 +72,10 @@ class SkillController extends AbstractController
                 'Votre compétence a été mise à jour avec succès !'
             );
 
-            return $this->redirectToRoute('skills_index');
+            return $this->redirectToRoute('skill_index');
         }
 
-        return $this->render('skill/index.html.twig', [
+        return $this->render('skill/edit.html.twig', [
             'skill' => $skill,
             'form' => $form->createView(),
             'skills' => $this->getUser()->getSkills(),
@@ -94,6 +96,6 @@ class SkillController extends AbstractController
             );
         }
 
-        return $this->redirectToRoute('skills_index');
+        return $this->redirectToRoute('skill_index');
     }
 }

@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ma formation{% endblock %}
+{% block title %}Mes formations{% endblock %}
 
 {% block body %}
     <div class="container my-5">
         <div class="table-education">
-            <h2 class="text-center mb-4">Vos Formations</h2>
+            <h2 class="text-center mb-4">Mes Formations</h2>
             {% for message in app.flashes('success') %}
                 <div class="alert alert-success">
                     {{ message }}
@@ -16,6 +16,10 @@
                     {{ message }}
                 </div>
             {% endfor %}
+            <div class="d-flex justify-content-between">
+                <a href="{{ path('account') }}"><i class="fas fa-backward"></i> Retour au Dashboard</a>
+                <a href="{{ path('education_add') }}" class="btn btn-primary">Ajouter une formation</a>
+            </div>
             <table class="table">
                 <thead>
                 <tr>
@@ -42,14 +46,5 @@
                 </tbody>
             </table>
         </div>
-
-        <div class="form-education w-75 mx-auto">
-            <h2 class="text-center mt-5">Ajouter Une Formation</h2>
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <button class="btn btn-primary" type="submit">Sauvegarder</button>
-            {{ form_end(form) }}
-        </div>
     </div>
-
 {% endblock %}

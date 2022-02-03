@@ -17,24 +17,24 @@ use Symfony\Component\HttpFoundation\Request;
 class EducationController extends AbstractController
 {
     /**
-     * @Route("/", name = "index")]
+     * @Route("/formations", name = "education_index")]
      */
-    public function index(): Response
+    public function index(EducationRepository $educationRepository): Response
     {
-        return $this->render('account/index.html.twig');
+        return $this->render('education/index.html.twig', [
+            'educations' => $this->getUser()->getEducations(),
+        ]);
     }
 
     /**
-     * @Route("/formations", name="education_index", methods={"GET", "POST"})
+     * @Route("/formations/add", name="education_add", methods={"GET", "POST"})
      */
     public function addEducation(Request $request, EntityManagerInterface $entityManager, EducationRepository $educationRepository): Response
     {
         $education  = new Education();
 
         $form = $this->createForm(EducationType::class, $education);
-
         $form->handleRequest($request);
-
         $education->setUser($this->getUser());
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -43,20 +43,20 @@ class EducationController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre formation a été ajouté !'
+                'Votre formation a été ajoutée avec succès !'
             );
 
             return $this->redirectToRoute('education_index');
         }
 
-        return $this->render('education/index.html.twig', [
+        return $this->render('education/add.html.twig', [
            'form' => $form->createView(),
            'educations' => $this->getUser()->getEducations(),
         ]);
     }
 
     /**
-     * @Route("/formations/{id}/edit", name="education_edit", methods={"GET", "POST"})
+     * @Route("/formation/{id}/edit", name="education_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, EntityManagerInterface $entityManager, Education $education, EducationRepository $educationRepository): Response
     {
@@ -68,13 +68,13 @@ class EducationController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Votre formation a été mise à jour !'
+                'Votre formation a été mise à jour avec succès !'
             );
 
             return $this->redirectToRoute('education_index');
         }
 
-        return $this->render('education/index.html.twig', [
+        return $this->render('education/edit.html.twig', [
             'education' => $education,
             'form' => $form->createView(),
             'educations' => $this->getUser()->getEducations(),
@@ -82,7 +82,7 @@ class EducationController extends AbstractController
     }
 
     /**
-     * @Route("/formations/{id}", name="education_delete", methods={"GET", "POST"})
+     * @Route("/formation/{id}", name="education_delete", methods={"GET", "POST"})
      */
     public function delete(Request $request, Education $education, EntityManagerInterface $entityManager): Response
     {
@@ -91,7 +91,7 @@ class EducationController extends AbstractController
 
             $this->addFlash(
                 'delete-success',
-                'Votre formation a été supprimé'
+                'Votre formation a été supprimée avec succès !'
             );
 
 
