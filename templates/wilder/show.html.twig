@@ -20,7 +20,9 @@
             <div class="group-infos">
                 <div class="card-content">
                     <p><a class="" href="{{ wilder.email|mailTo }}"><i class="fas fa-envelope-open-text mx-2"></i>{{ wilder.email }}</a></p>
-                    <p><i class="fas fa-phone-square-alt mx-2"></i>{{ wilder.telephone }}</p>
+                    {% if wilder.telephone %}
+                        <p><i class="fas fa-phone-square-alt mx-2"></i>{{ wilder.telephone }}</p>
+                    {% endif %}
                     {% if wilder.portfolio %}
                         <p><a target="_blank" href="{{ wilder.portfolio }}"><i class="fas fa-laptop mx-2"></i>Portfolio</a></p>
                     {% endif %}
