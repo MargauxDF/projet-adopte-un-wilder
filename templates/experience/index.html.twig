@@ -5,20 +5,12 @@
 {% block body %}
     <div class="container my-5">
         <div class="table-experience">
-            {% for message in app.flashes('success') %}
-                <div class="alert alert-success">
-                    {{ message }}
-                </div>
-            {% endfor %}
-            {% for message in app.flashes('delete-success') %}
-                <div class="alert alert-danger">
-                    {{ message }}
-                </div>
-            {% endfor %}
+            <h2 class="text-center mb-4">Mes Expériences</h2>
 
+            {% if experiences %}
                 <div class="d-flex justify-content-between">
                     <a href="{{ path('account') }}"><i class="fas fa-backward"></i> Retour au Dashboard</a>
-                    <a href="{{ path('experience_add') }}" class="btn btn-primary">Ajouter une expérience</a>
+                    <a href="{{ path('experience_add') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Ajouter une expérience</a>
                 </div>
 
                 <table class="table">
@@ -32,6 +24,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                     {% for experience in experiences %}
                     <tr>
                         <td class="align-middle">{{ experience.year }}</td>
@@ -46,6 +39,15 @@
                     {% endfor %}
                     </tbody>
                 </table>
+            {% else %}
+
+                <div class="d-flex justify-content-around my-5">
+                    <a href="{{ path('experience_add') }}" class="btn btn-primary btn-lg"><i class="fas fa-plus"></i> Ajouter une expérience</a>
+                </div>
+
+                <a href="{{ path('account') }}" class=""><i class="fas fa-backward"></i> Retour au Dashboard</a>
+
+            {% endif %}
         </div>
     </div>
 

@@ -20,13 +20,14 @@ class RegisterController extends AbstractController
      * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @param UserPasswordHasherInterface $encoder
+     * @param UserSlugger $slugger
      * @return Response
      */
     public function index(
         Request $request,
         EntityManagerInterface $entityManager,
         UserPasswordHasherInterface $encoder,
-        UserSlugger $slugger,
+        UserSlugger $slugger
     ): Response {
         $user = new User();
 
