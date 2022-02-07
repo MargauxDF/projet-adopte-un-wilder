@@ -29,12 +29,12 @@ section{
 }
 .group-infos {
     min-height: auto;
-    height: auto;
     min-width: 250px;
     width: auto;
     box-shadow: none;
     color: #1a1a1a !important;
     border: 1px #eb6864 !important;
+    height: fit-content !important;
 }
 .cv-name-title h4 {
     font-size: 18px;
@@ -61,10 +61,18 @@ p {
 }
 #cv .infos {
     justify-content: space-around !important;
+    display: flex !important;
 }
 .print-only {
     display: block;
     width: 90%;
     margin: auto;
     margin-top: 30px;
+}
+.col-md-4 {
+    width: 33% !important;
+}
+
+.col-md-8 {
+    width: 67% !important;
 }

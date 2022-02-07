@@ -2,15 +2,15 @@
 
 {% block body %}
 
-    <section class="background-cv mt-4 w-75" id="cv">
+    <section class="background-cv mt-4" id="cv">
         <div class="d-print-none">
             <div class="d-flex justify-content-end small"><a href="javascript: void(0);" onclick="window.print();"><i class="fas fa-download"></i> Télécharger la version PDF (par l'impression) !</a></div>
         </div>
 
-        <div class="infos d-flex justify-content-between">
-            <div class="user-picture d-flex">
+        <div class="infos d-md-flex d-sm-block justify-content-between">
+            <div class="user-picture d-md-flex d-sm-block d-print-none">
                 <img src="/uploads/pictures/{{ wilder.pictureFilename ?? 'user.png' }}" alt="profile-picture" class="profile-pic">
-                <div class="cv-name-title mt-5">
+                <div class="cv-name-title mt-md-5">
                     <h3 class="pink-color">{{ wilder.firstname }} <span class="text-uppercase">{{ wilder.lastname }}</span> </h3>
                         {% if wilder.labelCv %}
                             <h4 class="blue-color"><i class="fas fa-code"></i> {{ wilder.labelCv.title }}</h4>
@@ -24,6 +24,17 @@
                     </div>
                 </div>
             </div>
+            <!-- print version -->
+            <div class="user-picture d-flex d-none d-print-flex">
+                <img src="/uploads/pictures/{{ wilder.pictureFilename ?? 'user.png' }}" alt="profile-picture" class="profile-pic">
+                <div class="cv-name-title mt-5">
+                    <h3 class="pink-color">{{ wilder.firstname }} <span class="text-uppercase">{{ wilder.lastname }}</span> </h3>
+                    {% if wilder.labelCv %}
+                        <h4 class="blue-color"><i class="fas fa-code"></i> {{ wilder.labelCv.title }}</h4>
+                    {% endif %}
+                </div>
+            </div>
+            <!-- end print version -->
             <div class="group-infos">
                 <div class="card-content">
                     <p><a class="text-center" href="{{ wilder.email|mailTo }}"><i class="fas fa-envelope-open-text mx-2"></i>{{ wilder.email }}</a></p>
@@ -49,35 +60,34 @@
         </div>
     </section>
 
-    <section class="background-cv mt-4 w-75 d-print-none" id="about">
+    <section class="background-cv mt-4 d-print-none" id="about">
         <div class="presentation-cv width-85 mx-auto">
             <h3 class="pink-color text-center text-capitalize">A propos</h3>
             <p class="add-new-line fst-italic mt-3">{{ wilder.presentation ?? 'Bonjour, je suis un Wilder motivé et compétent !' }}</p>
         </div>
     </section>
 
-    <section class="background-cv mt-4 w-75" id="skills">
+    <section class="background-cv mt-4" id="skills">
         <div class="skills">
-            <h3 class="text-center mb-5 pink-color">Compétences</h3>
-            <div class="skill-cv d-flex justify-content-around">
+            <h3 class="text-center mb-4 pink-color">Compétences</h3>
+            <div class="skill-cv d-flex justify-content-around flex-wrap">
                 {% for skill in wilder.skills %}
-                    <img width="50px" src="{{ skill.url }}" alt="">
-
+                    <img class="p-1" width="50px" src="{{ skill.url }}" alt="">
                 {% endfor %}
             </div>
         </div>
     </section>
     <hr class="print-only">
-    <section class="background-cv mt-4 w-75" id="experience">
-        <div class="experiences px-5">
+    <section class="background-cv mt-4" id="experience">
+        <div class="experiences px-md-5">
             <h3 class="text-center mb-4 pink-color">Expérience</h3>
             <div class="ex-cv">
                 {% for experience in wilder.experiences %}
                     <div class="row">
-                        <div class="col-sm-4 year-ex">
+                        <div class="col-md-4 year-ex ">
                             <p class="fw-bold mt-1 badge bg-blue"><i class="far fa-calendar-check"></i> {{ experience.year }}</p>
                         </div>
-                        <div class="col-sm-8 detail-ex">
+                        <div class="col-md-8 detail-ex">
                             <p class="fw-bold ex-title-cv gray-color"><i class="fas fa-angle-double-left blue-color"></i> {{ experience.title }} <i class="fas fa-angle-double-right blue-color"></i></p>
                             <p><span class="">{{ experience.company }}</span>, {{ experience.city }}</p>
                             {% if experience.description %}
@@ -90,16 +100,16 @@
         </div>
     </section>
     <hr class="print-only">
-    <section class="background-cv mt-4 w-75" id="formation">
-        <div class="education px-5">
+    <section class="background-cv mt-4" id="formation">
+        <div class="education px-md-5">
             <h3 class="text-center pink-color mb-4">Formation</h3>
             <div class="school-cv">
                 {% for education in wilder.educations %}
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-md-4">
                             <p class="fw-bold mt-1 badge bg-blue"><i class="far fa-calendar-check"></i> {{ education.year }}</p>
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-md-8">
                             <p class="fw-bold ex-title-cv gray-color"><i class="fas fa-angle-double-left blue-color"></i>{{ education.title }}<i class="fas fa-angle-double-right blue-color"></i></p>
                             <p><span class="fst-italic">{{ education.school }} </span>,{{ education.city }}</p>
                             {% if education.description %}
@@ -112,7 +122,7 @@
         </div>
     </section>
 
-    <section class="background-cv mt-4 w-75 d-print-none" id="projects">
+    <section class="background-cv mt-4 d-print-none" id="projects">
         <div class="projects text-center">
             <h3 class="pink-color">Mes Projets</h3>
         </div>

@@ -220,6 +220,7 @@ label.required:before {
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
     background-color: #aaa;
     font-size: 15px;
+    height: fit-content;
 }
 
 .group-infos p, .group-infos a {
@@ -261,6 +262,9 @@ label.required:before {
 .print-only {
     display: none;
 }
+.background-cv {
+    width: 75% !important;
+}
 
 /************ about us page ********/
 .team4 h1, .team4 h2, .team4 h3, .team4 h4, .team4 h5 {
@@ -301,3 +305,23 @@ label.required:before {
     margin: auto;
 }
 
+@media (max-width: 576px) {
+    .user-picture {
+        text-align: center !important;
+    }
+    .group-infos {
+        margin: auto;
+    }
+    .mt-sm-4 {
+        margin-top: 1.5rem !important;
+    }
+    .background-cv {
+        width: 90% !important;
+    }
+    .img-fluid {
+        max-width: 70% !important;
+    }
+    .small-d-none {
+        display: none;
+    }
+}
