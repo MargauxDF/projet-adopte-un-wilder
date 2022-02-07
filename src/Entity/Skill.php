@@ -33,6 +33,11 @@ class Skill
      */
     private ?User $user;
 
+    public function __toString()
+    {
+        return $this->getUrl();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

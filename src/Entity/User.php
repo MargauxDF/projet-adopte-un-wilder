@@ -112,11 +112,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private ?LabelCv $labelCv;
 
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
         $this->experiences = new ArrayCollection();
         $this->educations = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->getSlug();
     }
 
     public function getId(): ?int
