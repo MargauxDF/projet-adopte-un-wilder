@@ -6,12 +6,11 @@
 
     <div class="container my-5">
         <div class="table-experience">
-            <h2 class="text-center mb-4">Vos Infos</h2>
-            {% for message in app.flashes('success') %}
-                <div class="alert alert-success">
-                    {{ message }}
-                </div>
-            {% endfor %}
+            <h2 class="text-center">Mes Infos</h2>
+            <div class="d-flex justify-content-between mb-5">
+                <a href="{{ path('account') }}"><i class="fas fa-backward"></i> Retour au Dashboard</a>
+                <a href="{{ path("info_edit", {id: app.user.id}) }}">Mettre à jour mon profil &nbsp; <i class="fas fa-pen"></i></a>
+            </div>
             <table class="table">
                 <tbody>
                 {% if app.user %}
@@ -45,7 +44,7 @@
                     </tr>
                     <tr>
                         <th scope="row">Photo</th>
-                        <td class="align-middle">{{ app.user.pictureFilename }} </td>
+                        <td class="align-middle"><img width="50px" src="/uploads/pictures/{{ app.user.pictureFilename }}" alt=""></td>
                     </tr>
                     <tr>
                         <th scope="row">Lien Linkedin</th>
@@ -56,7 +55,7 @@
                         <td class="align-middle">{{ app.user.github }} </td>
                     </tr>
                     <tr>
-                        <th scope="row">Lien Twitter</th>
+                        <th scope="row">lien Twitter</th>
                         <td class="align-middle">{{ app.user.twitter }} </td>
                     </tr>
                     <tr>
@@ -64,34 +63,21 @@
                         <td class="align-middle">{{ app.user.portfolio }} </td>
                     </tr>
                     <tr>
-                        <th scope="row">A l'adoption</th>
+                        <th scope="row">Adopté.e</th>
                         <td class="align-middle">
-                            {% if app.user.isAdopted %}
-                            non
-                            {% else %}
+                            {% if app.user.isAdopted is same as true %}
                             oui
+                            {% else %}
+                            non
                             {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Modifier mes infos ou Supprimer mon compte</th>
-                        <td class="align-middle d-flex justify-content-end align-items-center"><a class="btn btn-primary px-3 mx-3" href="{{ path("info_edit", {id: app.user.id}) }}"><i class="far fa-edit"></i></a>
-                            {{ include('info/_form_delete.html.twig') }}
                         </td>
                     </tr>
                 {% endif %}
                 </tbody>
             </table>
         </div>
-        {% if (app.request.get('_route') == 'info_edit') %}
-        <div class="form-experience w-75 mx-auto">
-            <h2 class="text-center mt-5">Mettre à jour mes infos</h2>
-            {{ form_start(form) }}
-            {{ form_row(form.picture) }}
-            {{ form_widget(form) }}
-            <button class="btn btn-primary" type="submit">Sauvegarder</button>
-            {{ form_end(form) }}
+        <div class="d-flex justify-content-end">
+            {{ include('info/_form_delete.html.twig') }}
         </div>
-        {% endif %}
     </div>
 {% endblock %}

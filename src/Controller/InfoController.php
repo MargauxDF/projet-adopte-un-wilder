@@ -23,15 +23,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class InfoController extends AbstractController
 {
     /**
-    * @Route("/", name="index")
+    * @Route("/infos", name="info_index")
     */
     public function index(UserRepository $userRepository): Response
     {
-        return $this->render('account/index.html.twig');
+        return $this->render('info/index.html.twig');
     }
 
     /**
-     * @Route("/infos", name="infos_index", methods={"GET", "POST"})
+     * @Route("/info/add", name="info_add", methods={"GET", "POST"})
      * @IsGranted("ROLE_USER")
      */
     public function addInfo(Request $request, EntityManagerInterface $entityManager, FileUploader $fileUploader): Response
@@ -59,15 +59,15 @@ class InfoController extends AbstractController
                 "Vos infos ont été mises à jour avec succès !"
             );
 
-            return $this->redirectToRoute('account');
+            return $this->redirectToRoute('info_index');
         }
-        return $this->render('info/index.html.twig', [
+        return $this->render('info/add.html.twig', [
             'form' => $form->createView()
         ]);
     }
 
     /**
-     * @Route("/infos/{id}/edit", name="info_edit", methods={"GET", "POST"})
+     * @Route("/info/{id}/edit", name="info_edit", methods={"GET", "POST"})
      */
     public function editInfo(
         Request $request,
@@ -95,17 +95,17 @@ class InfoController extends AbstractController
                 'Vos infos ont été mises à jour avec succès !'
             );
 
-            return $this->redirectToRoute('infos_index');
+            return $this->redirectToRoute('info_index');
         }
 
-        return $this->render('info/index.html.twig', [
+        return $this->render('info/edit.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/infos/{id}", name="infos_delete")
+     * @Route("/info/{id}", name="info_delete")
      */
     public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
@@ -122,5 +122,4 @@ class InfoController extends AbstractController
 
         return $this->redirectToRoute("register");
     }
-
 }

@@ -15,11 +15,16 @@
                         {% if wilder.labelCv %}
                             <h4 class="blue-color"><i class="fas fa-code"></i> {{ wilder.labelCv.title }}</h4>
                         {% endif %}
+                    {% if wilder.isAdopted %}
+                        <h5 class="fw-bold mt-1 badge bg-primary" id="cv-adopted"><i class="fas fa-times-circle"></i> Indisponible</h5>
+                    {% else %}
+                        <h5 class="fw-bold mt-1 badge bg-blue" id="cv-not-adopted"><i class="fas fa-check-circle"></i> Disponible</h5>
+                    {% endif %}
                 </div>
             </div>
             <div class="group-infos">
                 <div class="card-content">
-                    <p><a class="" href="{{ wilder.email|mailTo }}"><i class="fas fa-envelope-open-text mx-2"></i>{{ wilder.email }}</a></p>
+                    <p><a class="text-center" href="{{ wilder.email|mailTo }}"><i class="fas fa-envelope-open-text mx-2"></i>{{ wilder.email }}</a></p>
                     {% if wilder.telephone %}
                         <p><i class="fas fa-phone-square-alt mx-2"></i>{{ wilder.telephone }}</p>
                     {% endif %}

@@ -21,7 +21,7 @@ class UserSlugger
 
     public function findUniqueSlug(User $user): string
     {
-        $slug = $this->slugger->slug($user->getFirstname().' '.$user->getLastname())->toString();
+        $slug = $this->slugger->slug($user->getFirstname() . ' ' . $user->getLastname())->toString();
 
         $usersWithSameSlug = $this->userRepository->findBy([
             'slug' => $slug,
