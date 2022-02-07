@@ -333,3 +333,8 @@ label.required:before {
         display: none;
     }
 }
+
+h2 {
+    font-family: "Pacifico", cursive !important;
+    margin-bottom: 20px !important;
+}
