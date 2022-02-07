@@ -62,6 +62,16 @@
                         <th scope="row">Portfolio</th>
                         <td class="align-middle">{{ app.user.portfolio }} </td>
                     </tr>
+                    <tr>
+                        <th scope="row">Adopté.e</th>
+                        <td class="align-middle">
+                            {% if app.user.isAdopted is same as true %}
+                            oui
+                            {% else %}
+                            non
+                            {% endif %}
+                        </td>
+                    </tr>
                 {% endif %}
                 </tbody>
             </table>
