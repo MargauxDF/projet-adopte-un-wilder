@@ -14,8 +14,19 @@ a {
 
 /*********** Navbar ***********/
 #logo-navbar {
-    width: 55px;
+    width: 30px !important;
     transition:all 1s;
+}
+
+#logo-navbar:hover {
+    transform: scale(1.4);
+    transition: 1s;
+    z-index: 2;
+}
+
+.nav-item:hover {
+   transform: scale(1.1);
+    transition: 1s;
 }
 
 /*********** Page accueil ***********/
@@ -39,7 +50,7 @@ a {
 }
 
 #titre-site {
-    font-family: "Pacifico", cursive;
+    font-family: "Pacifico", cursive !important;
     color: floralwhite !important;
     font-size: xxx-large;
 }
@@ -94,6 +105,16 @@ label.required:before {
     content: "*";
 }
 
+
+/******* bouton adoption *******/
+#submit-info {
+    margin-top: 15px;
+}
+
+.form-switch {
+    padding-left: 1em !important;
+}
+
 /************All Wilders Page********/
 .card-img-wilder img {
     height: 300px;
@@ -119,6 +140,56 @@ label.required:before {
 }
 .icon-techno img {
     width: 100%;
+}
+
+.card-img-wilder {
+    position: relative;
+}
+
+.wilder-picture {
+    display: block;
+}
+
+.wilder-picture-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-shadow: 2px 2px black;
+    font-family: "Pacifico", cursive;
+    font-size: xxx-large !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.wilder-picture-overlay > * {
+    transform: translateY(20px);
+    transition: transform 0.25s;
+}
+
+.wilder-picture-overlay:hover {
+    opacity: 1;
+}
+
+.wilder-picture-overlay > *:hover {
+    transform: translateY(0);
+}
+
+.wilder-picture-adopted {
+    font-weight: bold;
+}
+
+#not-adopted {
+    color: #8AD13E;
+}
+
+#adopted {
+    color: #eb6864;
 }
 
 /************ CV Page********/
