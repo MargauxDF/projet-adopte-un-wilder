@@ -18,6 +18,15 @@ a {
     transition:all 1s;
 }
 
+#logo-navbar:hover {
+    transform: scale(1.4);
+    z-index: 2;
+}
+
+.nav-item:hover {
+   transform: scale(1.2);
+}
+
 /*********** Page accueil ***********/
 #background-gradient {
     background: linear-gradient(-45deg, #ee7752, #eb6864, #23a6d5, #23d5ab);
