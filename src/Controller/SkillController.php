@@ -12,7 +12,6 @@ use App\Repository\SkillRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
 
-
 /**
  * @Route("/account", name="")
  */

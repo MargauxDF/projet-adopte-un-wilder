@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\ChangePasswordType;
 use App\Form\InfoType;
 use App\Service\FileUploader;
 use App\Repository\UserRepository;
@@ -13,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -67,7 +69,7 @@ class InfoController extends AbstractController
     /**
      * @Route("/infos/{id}/edit", name="info_edit", methods={"GET", "POST"})
      */
-    public function edit(
+    public function editInfo(
         Request $request,
         EntityManagerInterface $entityManager,
         User $user,
@@ -120,4 +122,5 @@ class InfoController extends AbstractController
 
         return $this->redirectToRoute("register");
     }
+
 }

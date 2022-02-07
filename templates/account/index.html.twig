@@ -6,16 +6,25 @@
     <div class="container">
         <h1 class="my-4">Bienvenue {{ app.user.firstname }} 😺</h1>
         <div class="row">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
             <div class="col-md-4">
                 <div class="row g-0 border rounded overflow-hidden mb-4 shadow-lg" id="left-info">
                     <div class="profile-picture">
                         <img src="/uploads/pictures/{{ app.user.pictureFilename ?? 'user.png' }}" alt="profile-picture">
                     </div>
                     <div class="col px-4 d-flex flex-column position-static">
-                        <h3 class="mb-2 pink-color blue-color">{{ app.user.labelCv.title}}</h3>
+                        {% if app.user.labelCv %}
+                            <h3 class="mb-2 pink-color blue-color">{{ app.user.labelCv.title}}</h3>
+                        {% endif %}
                         <p class="card-text mb-auto fs-4 pink-color">{{ app.user.firstname }} {{ app.user.lastname }}</p>
                         <p class="card-text mb-auto fs-5"><i class="fas fa-envelope-open-text me-2"></i>{{ app.user.email }}</p>
-                        <p class="card-text mb-auto fs-5"><i class="fas fa-phone-square-alt me-2"></i>{{ app.user.telephone }}</p>
+                        {% if app.user.telephone %}
+                            <p class="card-text mb-auto fs-5"><i class="fas fa-phone-square-alt me-2"></i>{{ app.user.telephone }}</p>
+                        {% endif %}
                     </div>
 
                 </div>

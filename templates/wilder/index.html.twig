@@ -23,12 +23,23 @@
                         <a href="{{ path("wilder_show", {slug: wilder.slug}) }}">
                             <div class="card shadow-sm border-card-wilder">
                                 <div class="card-img-wilder">
-                                    <img class="card-img-top mt-3" src="/uploads/pictures/{{ wilder.pictureFilename ?? 'coding.jpeg' }}" alt="profile-picture">
+                                    <img class="card-img-top mt-3 wilder-picture" src="/uploads/pictures/{{ wilder.pictureFilename ?? 'coding.jpeg' }}" alt="profile-picture">
+                                    <div class="wilder-picture-overlay">
+                                        <div class="wilder-picture-adopted">
+                                            {% if wilder.isAdopted is same as true %}
+                                                <p id="adopted">Wilder <br> adopté</p>
+                                            {% else %}
+                                                <p>A l'adoption</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row d-flex">
                                         <p class="card-text title-name-card pink-color text-center">{{ wilder.lastname }} {{ wilder.firstname }}</p>
-                                        <p class="blue-color fw-bolder text-center">{{ wilder.labelCv.title }}</p>
+                                        {% if wilder.labelCv is not null %}
+                                            <p class="blue-color fw-bolder text-center">{{ wilder.labelCv.title }}</p>
+                                        {% endif %}
                                     </div>
 
                                     <a class="click-send-email text-center" href="{{ wilder.email|mailTo }}"><i class="fas fa-paper-plane me-2"></i>{{ wilder.email }}</a>
@@ -55,7 +66,9 @@
                                 <div class="card-body">
                                     <div class="row d-flex">
                                         <p class="card-text title-name-card pink-color text-center">{{ wilder.lastname }} {{ wilder.firstname }}</p>
-                                        <p class="blue-color fw-bolder text-center">{{ wilder.labelCv.title }}</p>
+                                        {% if wilder.labelCv is not null %}
+                                            <p class="blue-color fw-bolder text-center">{{ wilder.labelCv.title }}</p>
+                                        {% endif %}
                                     </div>
 
                                     <a class="click-send-email text-center" href="{{ wilder.email|mailTo }}"><i class="fas fa-paper-plane me-2"></i>{{ wilder.email }}</a>
@@ -65,7 +78,6 @@
                                 </div>
                             </div>
                         </a>
-
                     </div>
                 {% endfor %}
             </div>
@@ -77,5 +89,8 @@
     </div>
 
 </div>
-
+    <script>
+        let adopted = document.getElementById("adopted");
+        adopted.setAttribute("style", "color: #eb6864");
+    </script>
 {% endblock %}

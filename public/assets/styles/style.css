@@ -90,9 +90,8 @@ a {
     background-color: #8AD13E !important;
 }
 /************Form**********/
-.button-form button {
-    display: block;
-    margin: auto;
+label.required:before {
+    content: "*";
 }
 
 /************All Wilders Page********/
@@ -122,10 +121,52 @@ a {
     width: 100%;
 }
 
+.card-img-wilder {
+    position: relative;
+}
+
+.wilder-picture {
+    display: block;
+}
+
+.wilder-picture-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-shadow: 2px 2px black;
+    font-family: "Pacifico", cursive;
+    font-size: xxx-large !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.wilder-picture-overlay > * {
+    transform: translateY(20px);
+    transition: transform 0.25s;
+}
+
+.wilder-picture-overlay:hover {
+    opacity: 1;
+}
+
+.wilder-picture-overlay > *:hover {
+    transform: translateY(0);
+}
+
+.wilder-picture-adopted {
+    font-weight: bold;
+    color: #8AD13E;
+}
+
 /************ CV Page********/
 
 .background-cv{
-    width: 80%;
     padding: 30px;
     margin: auto;
     background-color: white;
@@ -143,21 +184,28 @@ a {
 }
 .group-infos {
     margin: 20px;
-    padding: 20px;
-    width: 330px;
-    min-height: 200px;
+    padding: 8px;
+    width: 300px;
+    min-height: 150px;
     display: grid;
-    border-radius: 10px;
+    border-radius: 3px;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
     background-color: #aaa;
-    font-size: 18px;
+    font-size: 15px;
 }
+
 .group-infos p, .group-infos a {
     color: white;
 }
 .group-infos a {
     text-decoration: none;
 }
+
+.card-content {
+    padding: 20px;
+    border: 1px dashed #fff;
+}
+
 .width-85 {
     width: 85%;
 }
@@ -181,9 +229,12 @@ a {
 .logo-skill-cv img {
     width: 100%;
 }
+.print-only {
+    display: none;
+}
 
 /************ about us page ********/
-.team4 h1, .team4 h2, .team4 h3, .team4 h4, .team4 h5, .team4 h6 {
+.team4 h1, .team4 h2, .team4 h3, .team4 h4, .team4 h5 {
     color: #eb6864;
 }
 
@@ -197,9 +248,8 @@ a {
 }
 
 .team4 .subtitle {
-    color: #8d97ad;
     line-height: 24px;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .team4 ul li a {
@@ -216,8 +266,8 @@ a {
     color: #316ce8;
 }
 
-label.required:before {
-    content: "*";
-
+.img-fluid {
+    max-width: 90% !important;
+    display: block;
+    margin: auto;
 }
-
