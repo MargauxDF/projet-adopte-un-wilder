@@ -182,6 +182,7 @@ label.required:before {
     border-radius: 50%;
     width: 250px;
     object-fit: cover;
+    height: 250px;
 }
 .logo-skill-cv img {
     width: 100%;

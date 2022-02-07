@@ -3,7 +3,7 @@
 {% block title %}Mes formations{% endblock %}
 
 {% block body %}
-    <div class="container my-5">
+    <div class="container my-5" style="min-height: 400px">
         <div class="table-education">
             <h2 class="text-center mb-4">Mes Formations</h2>
 
@@ -21,7 +21,6 @@
                         <th class="align-middle" scope="col" style="width: auto">Titre</th>
                         <th class="align-middle" scope="col" style="width: auto">Ecole</th>
                         <th class="align-middle" scope="col" style="width: auto">Ville</th>
-                        <th class="align-middle" scope="col" style="width: 30%">Description</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -31,7 +30,6 @@
                             <td class="align-middle">{{ education.title }}</td>
                             <td class="align-middle">{{ education.school }}</td>
                             <td class="align-middle">{{ education.city }}</td>
-                            <td class="align-middle">{{ education.Description }}</td>
                             <td class="align-middle" style="width: 15%"><a class="btn btn-primary px-3 mx-3" href="{{ path("education_edit", {id: education.id}) }}"><i class="fas fa-edit"></i></a>
                                 {{ include('education/_form_delete.html.twig') }}
                             </td>
