@@ -88,17 +88,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $portfolio;
 
     /**
-     * @ORM\OneToMany(targetEntity=Skill::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Skill::class, mappedBy="user", cascade={"remove"})
      */
     private Collection $skills;
 
     /**
-     * @ORM\OneToMany(targetEntity=Experience::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Experience::class, mappedBy="user", cascade={"remove"})
      */
     private Collection $experiences;
 
     /**
-     * @ORM\OneToMany(targetEntity=Education::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Education::class, mappedBy="user", cascade={"remove"})
      */
     private Collection $educations;
 
@@ -292,11 +292,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|Skill[]
+     * @return Skill[]
      */
-    public function getSkills(): Collection
+    public function getSkills(): array
     {
-        return $this->skills;
+        return $this->skills->toArray();
     }
 
     public function addSkill(Skill $skill): self
@@ -352,11 +352,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|Education[]
+     * @return Education[]
      */
-    public function getEducations(): Collection
+    public function getEducations(): array
     {
-        return $this->educations;
+        return $this->educations->toArray();
     }
 
     public function addEducation(Education $education): self
