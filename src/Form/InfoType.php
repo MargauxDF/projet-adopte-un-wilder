@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -44,25 +45,25 @@ class InfoType extends AbstractType
                 // make it optional so you don't have to re-upload the PDF file
                 // every time you edit the Product details
                 'required' => false,])
-            ->add('linkedin', TextType::class, [
+            ->add('linkedin', UrlType::class, [
                 'required'   => false,
                 'attr' => [
                     'placeholder' => 'Profil Linkedin',
                 ],
             ])
-            ->add('github', TextType::class, [
+            ->add('github', UrlType::class, [
                 'required'   => false,
                 'attr' => [
                     'placeholder' => 'Profil Github',
                 ],
             ])
-            ->add('twitter', TextType::class, [
+            ->add('twitter', UrlType::class, [
                 'required'   => false,
                 'attr' => [
                     'placeholder' => 'Profil Twitter',
                 ],
             ])
-            ->add('portfolio', TextType::class, [
+            ->add('portfolio', UrlType::class, [
                 'required'   => false,
                 'attr' => [
                     'placeholder' => '( http(s)://... )',
