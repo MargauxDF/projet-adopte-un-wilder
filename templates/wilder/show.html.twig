@@ -15,11 +15,13 @@
                         {% if wilder.labelCv %}
                             <h4 class="blue-color"><i class="fas fa-code"></i> {{ wilder.labelCv.title }}</h4>
                         {% endif %}
-                    {% if wilder.isAdopted %}
-                        <h5 class="fw-bold mt-1 badge bg-primary" id="cv-adopted"><i class="fas fa-times-circle"></i> Indisponible</h5>
-                    {% else %}
-                        <h5 class="fw-bold mt-1 badge bg-blue" id="cv-not-adopted"><i class="fas fa-check-circle"></i> Disponible</h5>
-                    {% endif %}
+                    <div class="d-print-none">
+                        {% if wilder.isAdopted %}
+                            <h5 class="fw-bold mt-1 badge bg-primary" id="cv-adopted"><i class="fas fa-times-circle"></i> Indisponible</h5>
+                        {% else %}
+                            <h5 class="fw-bold mt-1 badge bg-blue" id="cv-not-adopted"><i class="fas fa-check-circle"></i> Disponible</h5>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             <div class="group-infos">

@@ -94,6 +94,8 @@ label.required:before {
     content: "*";
 }
 
+
+/******* bouton adoption *******/
 #submit-info {
     margin-top: 15px;
 }
