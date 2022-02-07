@@ -3,7 +3,7 @@
 {% block title %}Mes expériences{% endblock %}
 
 {% block body %}
-    <div class="container my-5">
+    <div class="container my-5 min-h-mobile" style="min-height: 400px">
         <div class="table-experience">
             <h2 class="text-center mb-4">Mes Expériences</h2>
 
@@ -16,11 +16,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="align-middle" scope="col" style="width: 18%">Année</th>
-                            <th class="align-middle" scope="col" style="width: 15%">Poste</th>
-                            <th class="align-middle" scope="col">Description</th>
-                            <th class="align-middle" scope="col" style="width: 14%">Entreprise</th>
-                            <th class="align-middle" scope="col" style="width: 10%">Ville</th>
+                            <th class="align-middle" scope="col" style="width: auto">Année</th>
+                            <th class="align-middle" scope="col" style="width: auto">Poste</th>
+                            <th class="align-middle small-d-none" scope="col" style="width: auto">Entreprise</th>
+                            <th class="align-middle small-d-none" scope="col" style="width: auto">Ville</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,10 +28,9 @@
                     <tr>
                         <td class="align-middle">{{ experience.year }}</td>
                         <td class="align-middle">{{ experience.title }}</td>
-                        <td class="align-middle add-new-line">{{ experience.description }}</td>
-                        <td class="align-middle">{{ experience.company }}</td>
-                        <td class="align-middle">{{ experience.city }}</td>
-                        <td class="align-middle" style="width: 20%"><a class="btn btn-primary px-3 mx-3" href="{{ path("experience_edit", {id: experience.id}) }}"><i class="far fa-edit"></i></a>
+                        <td class="align-middle small-d-none">{{ experience.company }}</td>
+                        <td class="align-middle small-d-none">{{ experience.city }}</td>
+                        <td class="align-middle d-flex py-5" style="width: auto"><a class="btn btn-secondary px-3 mx-3" href="{{ path("experience_edit", {id: experience.id}) }}"><i class="far fa-edit"></i></a>
                             {{ include('experience/_form_delete.html.twig') }}
                         </td>
                     </tr>

@@ -16,10 +16,12 @@ class WilderController extends AbstractController
     public function index(UserRepository $userRepository): Response
     {
          $wildersPhp = $userRepository->findBy(['labelCv' => 1]);
+         $wildersData = $userRepository->findBy(['labelCv' => 2]);
 
         return $this->render('wilder/index.html.twig', [
             'wilders' => $userRepository->findAll(),
             'wildersPhp' => $wildersPhp,
+            'wildersData' => $wildersData,
         ]);
     }
 

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="container my-5">
+<div class="container my-5 min-h-mobile" style="min-height: 400px">
         <div class="table-compétences">
             <h2 class="text-center mb-4">Mes Compétences</h2>
 
@@ -13,16 +13,16 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th class="align-middle" scope="col">Logo</th>
-                        <th class="align-middle" scope="col">URL</th>
+                        <th class="align-middle" scope="col" style="width: auto">Logo</th>
+                        <th class="align-middle small-d-none" scope="col" style="width: auto">URL</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for skill in skills %}
                     <tr>
                         <td class="align-middle"><img width="50px" src="{{ skill.url }}" alt=""></td>
-                        <td class="align-middle">{{ skill.url }}</td>
-                        <td class="align-middle"><a class="btn btn-primary px-3 mx-3" href="{{ path("skill_edit", {id: skill.id}) }}"><i class="far fa-edit"></i></a>
+                        <td class="align-middle small-d-none">{{ skill.url }}</td>
+                        <td class="align-middle d-flex py-5" style="width: auto"><a class="btn btn-secondary px-3 mx-3" href="{{ path("skill_edit", {id: skill.id}) }}"><i class="far fa-edit"></i></a>
                             {{ include('skill/_form_delete.html.twig') }}
                         </td>
                     </tr>

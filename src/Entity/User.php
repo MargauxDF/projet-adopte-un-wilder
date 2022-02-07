@@ -112,6 +112,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private ?LabelCv $labelCv;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isAdopted;
 
     public function __construct()
     {
@@ -441,5 +445,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLabelCv(?LabelCv $labelCv): void
     {
         $this->labelCv = $labelCv;
+    }
+
+    public function getIsAdopted(): ?bool
+    {
+        return $this->isAdopted;
+    }
+
+    public function setIsAdopted(?bool $isAdopted): self
+    {
+        $this->isAdopted = $isAdopted;
+
+        return $this;
     }
 }
