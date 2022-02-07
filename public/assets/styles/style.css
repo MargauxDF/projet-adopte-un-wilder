@@ -55,6 +55,14 @@ a {
     font-size: xxx-large;
 }
 
+#wilder-button:hover {
+    color: #ee7752;
+}
+
+#guest-button:hover {
+    color: #ee7752;
+}
+
 /********** Account Page *********/
 #left-info {
     display: block;
