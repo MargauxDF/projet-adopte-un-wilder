@@ -17,11 +17,15 @@ class WilderController extends AbstractController
     {
          $wildersPhp = $userRepository->findBy(['labelCv' => 1]);
          $wildersData = $userRepository->findBy(['labelCv' => 2]);
+         $wildersJs = $userRepository->findBy(['labelCv' => 3]);
+        $wildersJava = $userRepository->findBy(['labelCv' => 4]);
 
         return $this->render('wilder/index.html.twig', [
             'wilders' => $userRepository->findAll(),
             'wildersPhp' => $wildersPhp,
             'wildersData' => $wildersData,
+            'wildersJs' => $wildersJs,
+            'wildersJava' => $wildersJava,
         ]);
     }
 
