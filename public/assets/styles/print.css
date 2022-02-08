@@ -11,7 +11,7 @@ section{
     width: 100%;
 }
 
-#cv, #skills, #experience, #formation{
+#cv, #skills, #experience, #formation, #projects{
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     width: 100% !important;
@@ -69,10 +69,16 @@ p {
     margin: auto;
     margin-top: 30px;
 }
-.col-md-4 {
+.col-lg-4 {
     width: 33% !important;
 }
 
-.col-md-8 {
+.col-lg-8 {
     width: 67% !important;
+}
+.techono-print {
+
+}
+.print-project a {
+    color: #222222 !important;
 }
