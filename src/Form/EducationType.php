@@ -59,6 +59,7 @@ class EducationType extends AbstractType
                 'description',
                 TextareaType::class,
                 [
+                    'required' => false,
                     'label' => 'Description :',
                     'attr' => [
                         'placeholder' => 'Détaillez ici le contenu de votre formation',

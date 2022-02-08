@@ -130,6 +130,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->projects = new ArrayCollection();
     }
 
+    public function getFullName(): string
+    {
+        return "{$this->firstName} {$this->lastName}";
+    }
+
     public function __toString()
     {
         return $this->getSlug();

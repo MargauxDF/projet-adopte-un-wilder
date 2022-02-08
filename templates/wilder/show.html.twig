@@ -17,9 +17,9 @@
                         {% endif %}
                     <div class="d-print-none">
                         {% if wilder.isAdopted %}
-                            <h5 class="fw-bold mt-1 badge bg-primary" id="cv-adopted"><i class="fas fa-times-circle"></i> Indisponible</h5>
+                            <h5 class="fw-bold mt-1 badge bg-primary p-2 mt-2" id="cv-adopted"><i class="fas fa-times-circle"></i> Indisponible</h5>
                         {% else %}
-                            <h5 class="fw-bold mt-1 badge bg-blue" id="cv-not-adopted"><i class="fas fa-check-circle"></i> Disponible</h5>
+                            <h5 class="fw-bold mt-1 badge bg-blue p-2 mt-2" id="cv-not-adopted"><i class="fas fa-check-circle"></i> Disponible</h5>
                         {% endif %}
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                             <p class="fw-bold ex-title-cv gray-color"><i class="fas fa-angle-double-left blue-color"></i>{{ education.title }}<i class="fas fa-angle-double-right blue-color"></i></p>
                             <p><span class="fst-italic">{{ education.school }} </span>,{{ education.city }}</p>
                             {% if education.description %}
-                                <p class="add-new-line">{{ education.description }}</p>
+                                <p class="add-new-line d-print-none">{{ education.description }}</p>
                             {% endif %}
                         </div>
                     </div>
