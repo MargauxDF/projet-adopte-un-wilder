@@ -329,6 +329,10 @@ label.required:before {
     color: #316ce8;
 }
 
+img{
+    object-fit: cover;
+}
+
 .img-fluid {
     max-width: 90% !important;
     display: block;
@@ -380,4 +384,8 @@ h2 {
     .min-h-mobile {
         min-height: 550px !important;
     }
+}
+
+img {
+    object-fit: cover;
 }
