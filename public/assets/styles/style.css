@@ -25,10 +25,9 @@ a {
 }
 
 .nav-item:hover {
-   transform: scale(1.1);
+    transform: scale(1.1);
     transition: 1s;
 }
-
 /*********** Page accueil ***********/
 #background-gradient {
     background: linear-gradient(-45deg, #ee7752, #eb6864, #23a6d5, #23d5ab);
@@ -313,7 +312,7 @@ label.required:before {
     margin: auto;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
     .user-picture {
         text-align: center !important;
     }
@@ -332,9 +331,30 @@ label.required:before {
     .small-d-none {
         display: none;
     }
+    .block-buttons {
+        margin-top: 20px !important;
+    }
+    .min-h-mobile {
+        min-height: 550px !important;
+    }
 }
 
 h2 {
     font-family: "Pacifico", cursive !important;
     margin-bottom: 20px !important;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .user-picture {
+        text-align: center !important;
+    }
+    .img-fluid {
+        max-width: 70% !important;
+    }
+    .block-buttons {
+        margin-top: 20px !important;
+    }
+    .min-h-mobile {
+        min-height: 550px !important;
+    }
 }
