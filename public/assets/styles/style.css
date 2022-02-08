@@ -272,6 +272,29 @@ label.required:before {
 .background-cv {
     width: 75% !important;
 }
+.img-project {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.techo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.25s;
+    background-color: rgba(235, 104, 100, 0.8);
+    color: white;
+    font-size: 24px;
+    text-shadow: 2px 2px black;
+    display: flex;
+    align-items: center;
+}
+.techo-overlay:hover {
+    opacity: 1;
+}
 
 /************ about us page ********/
 .team4 h1, .team4 h2, .team4 h3, .team4 h4, .team4 h5 {

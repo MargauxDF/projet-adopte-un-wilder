@@ -121,10 +121,58 @@
             </div>
         </div>
     </section>
+    <hr class="print-only">
+    <section class="background-cv mt-4" id="projects">
+        <div class="projects text-center px-md-5">
+            <h3 class="pink-color mb-3">Mes Projets</h3>
+                <div class="container d-print-none">
+                    <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 g-2 g-lg-3">
+                        {% for project in wilder.projects %}
+                        <div class="col">
+                            <div class="position-relative card-project">
+                                <img class="img-project card-img-top" src="/uploads/pictures/{{ project.pictureFilename }}" alt="screenshot-project">
+                                {% if project.description %}
+                                    <div class="techo-overlay">
+                                        <p class="techo position-absolute">{{ project.description }}</p>
+                                    </div>
 
-    <section class="background-cv mt-4 d-print-none" id="projects">
-        <div class="projects text-center">
-            <h3 class="pink-color">Mes Projets</h3>
+                                {% endif %}
+                            </div>
+                            <div class="project-detail">
+                                <p>{{ project.title }}</p>
+                                {% if project.url %}
+                                    <a class="badge bg-blue" target="_blank" href="{{ project.url }}"><i class="fas fa-link pe-2"></i>Lien projet</a>
+                                {% endif %}
+                                {% if project.github %}
+                                    <a class="badge bg-blue" target="_blank" href="{{ project.github }}"><i class="fab fa-github pe-2"></i>Github</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            <!-- print version -->
+            <div class="d-none d-print-block text-start">
+                {% for project in wilder.projects %}
+                    <div class="row mb-3 print-project">
+                        <div class="col-sm-4">
+                            <p class="fw-bold mt-1"><i class="fas fa-laptop-code pe-2"></i>{{ project.title }}</p>
+                        </div>
+                        <div class="col-sm-8">
+                            {% if project.description %}
+                                <p class="techono-print mt-1 fw-bold">{{ project.description }}</p>
+                            {% endif %}
+                            {% if project.github %}
+                                <a href="{{ project.github }}"><i class="fab fa-github pe-2"></i>{{ project.github }}</a><br>
+                            {% endif %}
+                            {% if project.url %}
+                                <a href="{{ project.url }}"><i class="fas fa-link pe-2"></i>{{ project.url }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- end print version -->
         </div>
     </section>
 
