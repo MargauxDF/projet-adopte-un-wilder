@@ -39,6 +39,7 @@ class ExperienceType extends AbstractType
                 ],
             ])
             ->add('description', TextareaType::class, [
+                'required' => false,
                 'label' => 'Description ',
                 'attr' => [
                     'placeholder' => '',

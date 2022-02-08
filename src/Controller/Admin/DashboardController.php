@@ -35,11 +35,13 @@ class DashboardController extends AbstractDashboardController
     {
         return Dashboard::new()
             ->setTitle("<h1 class='h3' style='color: #eb6864;'> Adopte Un Wilder</h1>")
-            ->setFaviconPath('/assets/images/dashboard.png');
+            ->setFaviconPath('/assets/images/dashboard.png')
+            ->renderContentMaximized(false);
     }
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::linktoRoute('Retour au site', 'fas fa-backward', 'account');
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('Formations', 'fas fa-user-graduate', Education::class);
