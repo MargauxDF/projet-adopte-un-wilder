@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes projets{% endblock %}
+
+{% block body %}
+    <div class="container my-5 min-h-mobile" style="min-height: 400px">
+        <div class="table-project">
+            <h2 class="text-center mb-4">Mes Projets</h2>
+
+            {% if projects %}
+                <div class="d-flex justify-content-between">
+                    <a href="{{ path('account') }}"><i class="fas fa-backward"></i> Retour au Dashboard</a>
+                    <a href="{{ path('project_add') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Ajouter un projet</a>
+                </div>
+
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="align-middle" scope="col" style="width: auto">Nom du projet</th>
+                        <th class="align-middle small-d-none" scope="col" style="width: auto">Screenshot</th>
+                        <th class="align-middle" scope="col" style="width: auto">Lien projet</th>
+                        <th class="align-middle" scope="col" style="width: auto">Lien Github</th>
+                        <th class="align-middle" scope="col" style="width: auto">Techno utilisé</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for project in projects %}
+                        <tr>
+                            <td class="align-middle">{{ project.title }}</td>
+                            <td class="align-middle"><img height=100 width=150 src="/uploads/pictures/{{ project.pictureFilename }}" alt="screenshot-projet"></td>
+                            <td class="align-middle"><a target="_blank" href="{{ project.url }}">{% if project.url %}<i class="fas fa-link pe-2"></i>Lien projet{% endif %}</a></td>
+                            <td class="align-middle">{% if project.github %}<a target="_parent" href="{{ project.github }}"><i class="fab fa-github pe-2"></i>Github</a>{% endif %}</td>
+                            <td class="align-middle">{{ project.description }}</td>
+                            <td class="align-middle d-flex py-5" style="width: auto"><a class="btn btn-secondary px-3 mx-3" href="{{ path("project_edit", {id: project.id}) }}"><i class="far fa-edit"></i></a>
+                                {{ include('project/_form_delete.html.twig') }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="d-flex justify-content-around my-5">
+                    <a href="{{ path('project_add') }}" class="btn btn-primary btn-lg"><i class="fas fa-plus"></i> Ajouter un projet</a>
+                </div>
+
+                <a href="{{ path('account') }}" class=""><i class="fas fa-backward"></i> Retour au Dashboard</a>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+{% endblock %}

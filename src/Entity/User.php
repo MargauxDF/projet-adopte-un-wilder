@@ -117,11 +117,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $isAdopted;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Project::class, mappedBy="user", cascade={"remove"})
+     */
+    private Collection $projects;
+
     public function __construct()
     {
         $this->skills = new ArrayCollection();
         $this->experiences = new ArrayCollection();
         $this->educations = new ArrayCollection();
+        $this->projects = new ArrayCollection();
     }
 
     public function getFullName(): string
@@ -460,6 +466,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsAdopted(?bool $isAdopted): self
     {
         $this->isAdopted = $isAdopted;
+
+        return $this;
+    }
+
+    /**
+     * @return Project[]
+     */
+    public function getProjects(): array
+    {
+        return $this->projects->toArray();
+    }
+
+    public function addProject(Project $project): self
+    {
+        if (!$this->projects->contains($project)) {
+            $this->projects[] = $project;
+            $project->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProject(Project $project): self
+    {
+        if ($this->projects->removeElement($project)) {
+            // set the owning side to null (unless already changed)
+            if ($project->getUser() === $this) {
+                $project->setUser(null);
+            }
+        }
 
         return $this;
     }
