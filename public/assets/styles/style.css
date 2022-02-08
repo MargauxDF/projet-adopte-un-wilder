@@ -382,3 +382,7 @@ h2 {
         min-height: 550px !important;
     }
 }
+
+img {
+    object-fit: cover;
+}
