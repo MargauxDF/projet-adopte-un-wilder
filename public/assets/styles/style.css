@@ -25,7 +25,7 @@ a {
 }
 
 .nav-item:hover {
-   transform: scale(1.1);
+    transform: scale(1.1);
     transition: 1s;
 }
 /*********** Page accueil ***********/
@@ -52,6 +52,14 @@ a {
     font-family: "Pacifico", cursive !important;
     color: floralwhite !important;
     font-size: xxx-large;
+}
+
+#wilder-button:hover {
+    color: #ee7752;
+}
+
+#guest-button:hover {
+    color: #ee7752;
 }
 
 /********** Account Page *********/
@@ -352,6 +360,11 @@ label.required:before {
     .min-h-mobile {
         min-height: 550px !important;
     }
+}
+
+h2 {
+    font-family: "Pacifico", cursive !important;
+    margin-bottom: 20px !important;
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
