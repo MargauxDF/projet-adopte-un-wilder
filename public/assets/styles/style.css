@@ -26,7 +26,6 @@ a {
 
 .nav-item:hover {
     transform: scale(1.1);
-    transition: 1s;
 }
 
 /*********** Page accueil ***********/
