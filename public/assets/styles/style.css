@@ -330,6 +330,10 @@ label.required:before {
     color: #316ce8;
 }
 
+img{
+    object-fit: cover;
+}
+
 .img-fluid {
     max-width: 90% !important;
     display: block;
