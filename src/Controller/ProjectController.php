@@ -69,7 +69,7 @@ class ProjectController extends AbstractController
     public function edit(Request $request,
                          EntityManagerInterface $entityManager,
                          Project $project,
-                         FileUploader $fileUploader,
+                         FileUploader $fileUploader
     ): Response
     {
         $form = $this->createForm(ProjectType::class, $project);

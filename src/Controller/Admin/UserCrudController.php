@@ -30,17 +30,17 @@ class UserCrudController extends AbstractCrudController
             TextField::new('slug'),
             EmailField::new('email'),
             TextField::new('password'),
-            TextareaField::new('presentation'),
+            //TextareaField::new('presentation'),
             ImageField::new('picturefilename')
                 ->setBasePath('uploads/pictures/')
                 ->setUploadDir('public/uploads/pictures/')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
             TelephoneField::new('telephone'),
-            UrlField::new('linkedin'),
-            UrlField::new('github'),
-            UrlField::new('twitter'),
-            UrlField::new('portfolio'),
+            //UrlField::new('linkedin'),
+            //UrlField::new('github'),
+            //UrlField::new('twitter'),
+            //UrlField::new('portfolio'),
             AssociationField::new('skills'),
             AssociationField::new('experiences'),
             AssociationField::new('educations'),
