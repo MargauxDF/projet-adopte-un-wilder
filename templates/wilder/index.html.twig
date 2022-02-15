@@ -76,6 +76,7 @@
                                                 <p id="not-adopted">À l'adoption</p>
                                             {% endif %}
                                         </div>
+                                    </div>
                                 </div>
                                 <div class="card-body text-center">
                                     <div class="row d-flex">
@@ -104,6 +105,15 @@
                             <div class="card shadow-sm border-card-wilder">
                                 <div class="card-img-wilder">
                                     <img class="card-img-top mt-3" src="/uploads/pictures/{{ wilder.pictureFilename ?? 'coding.jpeg' }}" alt="profile-picture">
+                                    <div class="wilder-picture-overlay">
+                                        <div class="wilder-picture-adopted">
+                                            {% if wilder.isAdopted is same as true %}
+                                                <p id="adopted">Wilder <br> adopté</p>
+                                            {% else %}
+                                                <p id="not-adopted">À l'adoption</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body text-center">
                                     <div class="row d-flex">
@@ -140,6 +150,7 @@
                                                 <p id="not-adopted">À l'adoption</p>
                                             {% endif %}
                                         </div>
+                                    </div>
                                 </div>
                                 <div class="card-body text-center">
                                     <div class="row d-flex">
@@ -177,6 +188,7 @@
                                                 <p id="not-adopted">À l'adoption</p>
                                             {% endif %}
                                         </div>
+                                    </div>
                                 </div>
                                 <div class="card-body text-center">
                                     <div class="row d-flex">
